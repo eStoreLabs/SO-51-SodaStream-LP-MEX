@@ -26,6 +26,8 @@
         --light-blue: #7ebff4;
         --blue: #005bab;
         --dark-blue: #002349;
+        --pink: #e3077d;
+        --green: #1a6913;
 
         margin: 0 auto;
         padding: 0;
@@ -175,6 +177,8 @@
 
     #es-rc #es-rc-content .es-saturators-carousel-and-video {
         display: flex;
+        padding: 0 1.875em 2.5em;
+        background-color: var(--blue);
     }
 
     #es-rc #es-rc-content .es-saturators-carousel-and-video__carousel {
@@ -205,10 +209,15 @@
 
     #es-rc #es-rc-content .es-saturator-benefits__row-cell {
         flex: 1;
-        padding: 1.125em 2.313em;
+        padding: 2.125em 1.313em;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row-cell-bottle-img {
+        width: 85px;
+        height: 87px;
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row:first-child > .es-saturator-benefits__row-cell {
@@ -221,6 +230,10 @@
         font-size: 1.25em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
         text-align: center;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row-cell:first-child {
+        justify-content: flex-start;
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row .es-saturator-benefits__row-cell-colors {
@@ -237,10 +250,162 @@
 
     #es-rc #es-rc-content .es-saturator-benefits__row-cell-text {
         font-size: 1.125em;
+        text-align: center;
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row:not(:first-child) > .es-saturator-benefits__row-cell:not(:last-child) {
         border-right: 2px solid var(--white);
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange {
+        background-color: var(--pink);
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery {
+        display: flex;
+        background-color: var(--green);
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__left {
+        flex: 1;
+
+        padding: 9.925% 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__left-title {
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
+        font-size: 3.313em;
+        text-align: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right {
+        flex: 1;
+
+        display: flex;
+        gap: 0.5em;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(1) .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+        flex: 1;
+
+        background-image: url(./img/piramida.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(1) .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+        flex: 1;
+
+        background-image: url(./img/berries.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(2) .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+        flex: 0.6;
+
+        background-image: url(./img/white-saturator.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(2) .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+        flex: 0.4;
+
+        background-image: url(./img/orange.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(3) .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+        flex: 0.20;
+
+        background-image: url(./img/lemon.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(3) .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+        flex: 0.25;
+
+        background-image: url(./img/grapefruit.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(3) .es-bottles-gallery__right-col-image-placeholder:nth-child(3) {
+        flex: 0.55;
+
+        background-image: url(./img/glass-with-orange.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(4) .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+        flex: 0.35;
+
+        background-image: url(./img/ice.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery__right-col:nth-child(4) .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+        flex: 0.65;
+
+        background-image: url(./img/black-saturator.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters {
+        display: flex;
+        flex-direction: column;
+        gap: 1.813em;
+
+        padding-top: 2.688em;
+        padding-bottom: 0.75em;
+        background-color: #9cb644;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__litres {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__litres-col > p {
+        text-align: center;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(1) {
+        font-size: 1.563em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(2) {
+        margin-top: 1em;
+        margin-bottom: 1.813em;
+        font-size: 3.438em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(3) {
+        font-size: 1.25em;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__references-text {
+        text-align: center;
     }
 
     @media screen and (min-width: 360px) {
@@ -380,9 +545,12 @@
                 </p>
             </div>
         </div>
-
         <div class="es-saturators-carousel-and-video">
-            <div class="es-saturators-carousel-and-video__carousel">products carousel</div>
+            <div class="es-saturators-carousel-and-video__carousel">
+                <div style="height: 100%; background-color: red; display: flex; justify-content: center; align-items: center;">
+                    Products Carousel
+                </div>
+            </div>
             <div class="es-saturators-carousel-and-video__video">
                 <video controls width="100%">
                     <source src="./video/saturator_loop_1080x1080.mp4" type="video/mp4">
@@ -469,6 +637,365 @@
                              src="./img/black-color.png"/>
                     </div>
                 </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">gazowanie wody</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">gazowanie innych napojów</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/cross-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/cross-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/cross-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/cross-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">bezprzewodowy</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">stalowe detale</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/cross-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/check-mark.png"/>
+                </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">rodzaj cylindra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-bottle-img" alt=""
+                         src="./img/bottle.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-bottle-img" alt=""
+                         src="./img/bottle.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-bottle-img" alt=""
+                         src="./img/bottle.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-bottle-img" alt=""
+                         src="./img/bottle.png"/>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-bottle-img" alt=""
+                         src="./img/bottle.png"/>
+                </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">butelka w zestawie</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l + szklana karafka duo 1l</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l + butelka o pojemności 430ml</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="es-get-to-know-saturators">
+            <div class="es-get-to-know-saturators__enso">
+                <div class="es-get-to-know-saturators__enso-content">
+                    <h3 class="es-get-to-know-saturators__enso-content-title">
+                        Twoje bąbelki, Twój styl -<br/>gdziekolwiek jesteś
+                    </h3>
+                </div>
+                <div class="es-get-to-know-saturators__enso-saturator">
+                    <img class="es-get-to-know-saturators__enso-saturator-img"
+                         src="./img/bottles.png"
+                         alt="">
+                </div>
+            </div>
+
+            <div class="es-get-to-know-saturators__menu">
+                <a href="#">wszystkie</a>
+                <a href="#">promocje</a>
+                <a href="#">Tritanowe 0,5l</a>
+                <a href="#">Tritanowe 1l</a>
+                <a href="#">szklane</a>
+                <a href="#">termiczne</a>
+            </div>
+
+            <div class="es-get-to-know-saturators__desc">
+                <p class="es-get-to-know-saturators__desc-text">
+                    Butelki Sodastream to stylowe dopełnienie Twojego bąbelkowego rytuału – zaprojektowane z myślą o
+                    codziennym komforcie, będą Twoim wiernym towarzyszem zarówno w domu, jak i w drodze. Wśród
+                    dostępnych wariantów znajdziesz zarówno eleganckie butelki na co dzień, jak i kompaktowe modele,
+                    idealne na spacer czy siłownię. W ofercie dostępne są również termiczne butelki Fizz&Go, które
+                    pozwalają przygotować napój gazowany bezpośrednio w butelce i – dzięki podwójnym ściankom –
+                    utrzymują jego temperaturę nawet do 12 godzin. Wybierz wersję najlepiej dopasowaną do swoich potrzeb
+                    i nie rozstawaj się z bąbelkami ani na chwilę!
+                </p>
+            </div>
+        </div>
+        <div class="es-saturators-carousel-and-video">
+            <div class="es-saturators-carousel-and-video__video">
+                <video controls width="100%">
+                    <source src="./video/butelki_loop_1080x1080.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="es-saturators-carousel-and-video__carousel">
+                <div style="height: 100%; background-color: red; display: flex; justify-content: center; align-items: center;">
+                    Products Carousel
+                </div>
+            </div>
+        </div>
+
+        <div class="es-get-to-know-saturators">
+            <div class="es-get-to-know-saturators__enso">
+                <div class="es-get-to-know-saturators__enso-saturator">
+                    <img class="es-get-to-know-saturators__enso-saturator-img"
+                         src="./img/tastes.png"
+                         alt="">
+                </div>
+                <div class="es-get-to-know-saturators__enso-content">
+                    <h3 class="es-get-to-know-saturators__enso-content-title">poznaj świat<br/>smaków Sodastream</h3>
+                </div>
+            </div>
+
+            <div class="es-get-to-know-saturators__menu">
+                <a href="#">wszystkie</a>
+                <a href="#">promocje</a>
+                <a href="#">kultowe napoje gazowane</a>
+                <a href="#">lipton</a>
+                <a href="#">owocowe smaki</a>
+                <a href="#">classics</a>
+            </div>
+
+            <div class="es-get-to-know-saturators__desc">
+                <p class="es-get-to-know-saturators__desc-text">
+                    Eksperymentuj ze smakiem i baw się bąbelkami! Syropy Sodastream oferują szeroką gamę możliwości – od
+                    klasycznych smaków, które dobrze znasz, przez owocowe warianty bez dodatku cukru, aż po nowoczesne,
+                    zaskakujące kompozycje, które pobudzą Twoją wyobraźnię. Wystarczy kilka kropli, by zamienić zwykłą
+                    wodę gazowaną w orzeźwiający napój, idealnie dopasowany do Twojego gustu. Odkryj swój ulubiony
+                    wariant i nadaj bąbelkom jeszcze więcej charakteru!
+                </p>
+            </div>
+        </div>
+        <div class="es-saturators-carousel-and-video">
+            <div class="es-saturators-carousel-and-video__carousel">
+                <div style="height: 100%; background-color: red; display: flex; justify-content: center; align-items: center;">
+                    Products Carousel
+                </div>
+            </div>
+            <div class="es-saturators-carousel-and-video__video">
+                <video controls width="100%">
+                    <source src="./video/syropy_loop_1080x1080.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="es-get-to-know-saturators">
+            <div class="es-get-to-know-saturators__enso">
+                <div class="es-get-to-know-saturators__enso-content">
+                    <h3 class="es-get-to-know-saturators__enso-content-title">
+                        niech nigdy<br/>nie zabraknie Ci bąbelków
+                    </h3>
+                </div>
+                <div class="es-get-to-know-saturators__enso-saturator">
+                    <img class="es-get-to-know-saturators__enso-saturator-img"
+                         src="./img/bubbles.png"
+                         alt="">
+                </div>
+            </div>
+
+            <div class="es-get-to-know-saturators__desc">
+                <p class="es-get-to-know-saturators__desc-text">
+                    Cylindry CO₂ to Twoje źródła świeżych bąbelków, które zmieniają zwykłą wodę w przyjemnie
+                    orzeźwiający napój — zawsze wtedy, gdy masz na to ochotę. Każdy cylinder pozwala przygotować aż do
+                    60 litrów gazowanej wody, co sprawia, że codzienne orzeźwienie jest zawsze w zasięgu ręki.
+                    <br/><br/>
+                    W ofercie Sodastream dostępne są dwa warianty cylindrów CO2:
+                    Różowy – cylinder z szybkim złączem (Quick Connect), dedykowany do modeli: Terra, Art, Duo, Enso
+                    oraz MIX.
+                    Niebieski – cylinder z wkręcanym gwintem (Twist), pasujący do modeli: Spirit, Jet oraz Source.
+                </p>
+            </div>
+        </div>
+        <div class="es-saturators-carousel-and-video">
+            <div class="es-saturators-carousel-and-video__video">
+                <video controls width="100%">
+                    <source src="./video/cylindry_loop_1080x1080.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="es-saturators-carousel-and-video__carousel">
+                <div style="height: 100%; background-color: red; display: flex; justify-content: center; align-items: center;">
+                    Products Carousel
+                </div>
+            </div>
+        </div>
+
+        <div class="es-bottle-exchange">
+            <img src="./img/exchange-bottle.png" alt=""/>
+        </div>
+
+        <div style="height: 400px; background-color: red; display: flex; justify-content: center; align-items: center;">
+            Map
+        </div>
+
+        <div class="es-bottles-gallery">
+            <div class="es-bottles-gallery__left">
+                <h3 class="es-bottles-gallery__left-title">
+                    zmień jednorazowe<br/>butelki na bąbelki
+                </h3>
+            </div>
+            <div class="es-bottles-gallery__right">
+                <div class="es-bottles-gallery__right-col">
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                </div>
+                <div class="es-bottles-gallery__right-col">
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                </div>
+                <div class="es-bottles-gallery__right-col">
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                </div>
+                <div class="es-bottles-gallery__right-col">
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                    <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="es-bottle-counters">
+            <div class="es-bottle-counters__litres">
+                <div class="es-bottle-counters__litres-col">
+                    <p>
+                        1 saturator<br />pozwala zastąpić
+                    </p>
+                    <p>
+                        tysiące
+                    </p>
+                    <p>
+                        plastikowych butelek<br />jednorazowego użytku<sup>1</sup>
+                    </p>
+                </div>
+
+                <div class="es-bottle-counters__litres-col">
+                    <p>
+                        1 syrop Sodastream<br />pozwala przygotować
+                    </p>
+                    <p>
+                        9 litrów
+                    </p>
+                    <p>
+                        Twojego ulubionego<br />napoju<sup>2</sup>
+                    </p>
+                </div>
+
+                <div class="es-bottle-counters__litres-col">
+                    <p>
+                        1 cylinder CO<sub>2</sub><br />pozwala przygotować
+                    </p>
+                    <p>
+                        60 litrów
+                    </p>
+                    <p>
+                        wody nagazowanej tak,<br />jak lubisz<sup>3</sup>
+                    </p>
+                </div>
+            </div>
+
+            <div class="es-bottle-counters__references">
+                <p class="es-bottle-counters__references-text"><sup>1</sup>Plastikowych butelek jednorazowego użytku o pojemności 0,5 l. W zależności od poziomu
+                    nagazowania i modelu saturatora.</p>
+                <p class="es-bottle-counters__references-text"><sup>2</sup>Jeśli przygotowane zgodnie z instrukcją na opakowaniu.</p>
+                <p class="es-bottle-counters__references-text"><sup>3</sup>W zależności od poziomu nagazowania i modelu saturatora.</p>
             </div>
         </div>
     </div>
