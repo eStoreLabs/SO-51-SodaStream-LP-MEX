@@ -1,0 +1,434 @@
+<meta charset="UTF-8">
+
+<style>
+    @font-face {
+        font-family: "HurmeGeometricSans3-Bold";
+        src: local("HurmeGeometricSans3-Bold"), url("./fonts/HurmeGeometricSans3-Bold.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "HurmeGeometricSans3-Regular";
+        src: local("HurmeGeometricSans3-Regular"), url("./fonts/HurmeGeometricSans3-Regular.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "HurmeGeometricSans3-Black";
+        src: local("HurmeGeometricSans3-Black"), url("./fonts/HurmeGeometricSans3-Black.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "HurmeGeometricSans3-Light";
+        src: local("HurmeGeometricSans3-Light"), url("./fonts/HurmeGeometricSans3-Light.woff2") format("woff2");
+    }
+
+    #es-rc #es-rc-content {
+        --white: #fff;
+        --light-blue: #7ebff4;
+        --blue: #005bab;
+        --dark-blue: #002349;
+
+        margin: 0 auto;
+        padding: 0;
+        font-family: "HurmeGeometricSans3-Regular", sans-serif;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 1.2;
+        max-width: 100vw;
+        overflow: hidden;
+        background-color: #ffffff;
+        color: var(--white);
+    }
+
+    #es-rc #es-rc-content * {
+        box-sizing: border-box;
+    }
+
+    #es-rc #es-rc-content h2,
+    #es-rc #es-rc-content h3,
+    #es-rc #es-rc-content h4,
+    #es-rc #es-rc-content h5,
+    #es-rc #es-rc-content h6 {
+        margin: 0;
+    }
+
+    #es-rc #es-rc-content p {
+        margin: 0;
+    }
+
+    #es-rc #es-rc-content img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #es-rc #es-rc-content .es-kv__mobile,
+    #es-rc #es-rc-content .es-kv {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 9% 8%;
+
+        background-image: url(./img/kv-background.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #es-rc #es-rc-content .es-kv__mobile {
+        display: none;
+    }
+
+    #es-rc #es-rc-content .es-kv__logo-img {
+        width: 100%;
+        max-width: 531px;
+    }
+
+    #es-rc #es-rc-content .es-kv__title {
+        font-size: 5.9375em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    }
+
+    #es-rc #es-rc-content .es-products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 46px;
+        padding: 3em 1.313em;
+        background-color: var(--blue);
+    }
+
+    #es-rc #es-rc-content .es-products__item {
+        width: fit-content;
+    }
+
+    #es-rc #es-rc-content .es-products__item-title {
+        margin-top: 1.375em;
+        font-size: 1.125em;
+        text-align: center;
+    }
+
+    #es-rc #es-rc-content .es-products__item-img {
+        max-width: unset;
+        width: 150px;
+        height: 150px;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators {
+        background-color: var(--blue);
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__enso {
+        padding: 0.888em;
+        display: flex;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__enso-saturator {
+        flex: 1;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__enso-content {
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__enso-content-title {
+        text-align: center;
+        font-size: 3.75em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__menu {
+        display: flex;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__menu > a {
+        flex: 1;
+        padding: 1.438em 0;
+        background-color: var(--light-blue);
+        border-right: 1px solid var(--dark-blue);
+        transition: background-color 0.3s;
+
+        text-decoration: none;
+        font-size: 1.125em;
+        text-align: center;
+        color: var(--dark-blue);
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__menu > a:last-child {
+        border-right: none;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__menu > a:hover {
+        background-color: #1e90ff;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__desc {
+        padding: 2.5em 1.875em;
+        background-color: var(--blue);
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__desc-text {
+        font-size: 1.375em;
+    }
+
+    #es-rc #es-rc-content .es-saturators-carousel-and-video {
+        display: flex;
+    }
+
+    #es-rc #es-rc-content .es-saturators-carousel-and-video__carousel {
+        flex: 0.6;
+
+        background-color: red;
+    }
+
+    #es-rc #es-rc-content .es-saturators-carousel-and-video__video {
+        flex: 0.4;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits {
+        padding: 2.063em;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--blue);
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row {
+        width: 100%;
+        display: flex;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row:first-child {
+        border-bottom: 2px solid var(--white);
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row-cell {
+        flex: 1;
+        padding: 1.125em 2.313em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row:first-child > .es-saturator-benefits__row-cell {
+        flex-direction: column;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row-cell-text {
+        font-size: 1.125em;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row:not(:first-child) > .es-saturator-benefits__row-cell:not(:last-child) {
+        border-right: 2px solid var(--white);
+    }
+
+    @media screen and (min-width: 360px) {
+        #es-rc #es-rc-content .es-kv {
+            height: 650px;
+        }
+    }
+
+    @media screen and (min-width: 400px) {
+        #es-rc #es-rc-content .es-kv {
+            height: 850px;
+        }
+    }
+
+    @media screen and (min-width: 550px) {
+        #es-rc #es-rc-content .es-kv {
+            height: 975px;
+        }
+    }
+
+    @media screen and (min-width: 650px) {
+        #es-rc #es-rc-content .es-kv {
+            height: 1200px;
+        }
+    }
+
+    @media screen and (min-width: 998px) {
+        #es-rc #es-rc-content .es-kv {
+            height: 480px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        #es-rc #es-rc-content .es-kv {
+            height: 683px;
+        }
+    }
+</style>
+
+<div id="es-rc">
+    <div id="es-rc-content">
+        <div class="es-kv">
+            <div class="es-kv__content">
+                <h3 class="es-kv__title">poznaj świat
+                </h3>
+            </div>
+            <div class="es-kv__logo">
+                <img class="es-kv__logo-img"
+                     src="./img/logo.png"
+                     alt="">
+            </div>
+        </div>
+        <div class="es-kv__mobile">
+            <div class="es-kv__logo">
+                <img class="es-kv__logo-img"
+                     src="./img/logo.png"
+                     alt="">
+            </div>
+            <div class="es-kv__content">
+                <h3 class="es-kv__title">
+                    Wypróbuj nasz bestseller <span class="es-kv__title--bold">Cicaplast Balsam B5+</span>
+                    w rutynie z innymi produktami
+                </h3>
+            </div>
+        </div>
+
+        <div class="es-products">
+            <div class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/promocje-icon.png"/>
+                <h3 class="es-products__item-title">promocje</h3>
+            </div>
+
+
+            <div class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/saturatory-icon.png"/>
+                <h3 class="es-products__item-title">saturatory</h3>
+            </div>
+
+
+            <div class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/butelki-icon.png"/>
+                <h3 class="es-products__item-title">butelki</h3>
+            </div>
+
+
+            <div class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/syropy-icon.png"/>
+                <h3 class="es-products__item-title">syropy</h3>
+            </div>
+
+
+            <div class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/dlaczego-icon.png"/>
+                <h3 class="es-products__item-title">dlaczego warto<br/>pić lepiej?</h3>
+            </div>
+
+
+            <div class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/pytania-icon.png"/>
+                <h3 class="es-products__item-title">pytania<br/>i odpowiedzi</h3>
+            </div>
+
+        </div>
+
+        <div class="es-saturators-carousel"></div>
+
+        <div class="es-get-to-know-saturators">
+            <div class="es-get-to-know-saturators__enso">
+                <div class="es-get-to-know-saturators__enso-saturator">
+                    <img class="es-get-to-know-saturators__enso-saturator-img"
+                         src="./img/enso-saturator.png"
+                         alt="">
+                </div>
+                <div class="es-get-to-know-saturators__enso-content">
+                    <h3 class="es-get-to-know-saturators__enso-content-title">poznaj saturatory<br/>Sodastream</h3>
+                </div>
+            </div>
+
+            <div class="es-get-to-know-saturators__menu">
+                <a href="#">wszystkie</a>
+                <a href="#">promocje</a>
+                <a href="#">terra</a>
+                <a href="#">art</a>
+                <a href="#">duo</a>
+                <a href="#">mix</a>
+                <a href="#">ensi</a>
+            </div>
+
+            <div class="es-get-to-know-saturators__desc">
+                <p class="es-get-to-know-saturators__desc-text">
+                    Saturatory SodaStream pozwolą Ci w prosty sposób przygotować samodzielnie wodę gazowaną w domowym
+                    zaciszu – dokładnie taką, jak lubisz. Bez prądu, bez kabli i bez konieczności noszenia ciężkich
+                    zgrzewek z napojami – orzeźwiające bąbelki masz zawsze na wyciągnięcie ręki, idealnie dopasowane do
+                    Twojego gustu. W portfolio znajdziesz zarówno modele o prostym, klasycznym wyglądzie, jak i
+                    saturatory o nowoczesnym designie, dopasowane do stylu Twojej kuchni. Sprawdź dostępne warianty i
+                    rozpocznij swoją bąbelkową przygodę już dziś!
+                </p>
+            </div>
+        </div>
+
+        <div class="es-saturators-carousel-and-video">
+            <div class="es-saturators-carousel-and-video__carousel">products carousel</div>
+            <div class="es-saturators-carousel-and-video__video">
+                <video controls width="100%">
+                    <source src="./video/saturator_loop_1080x1080.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+        <div class="es-saturator-benefits">
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell"></div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+            </div>
+            <div class="es-saturator-benefits__row">
+                <div class="es-saturator-benefits__row-cell">
+                    <p class="es-saturator-benefits__row-cell-text">dostępne kolory</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+                <div class="es-saturator-benefits__row-cell">
+                    <img class="es-saturator-benefits__row-cell-img" alt=""
+                         src="./img/saturator-terra.png"/>
+                    <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
