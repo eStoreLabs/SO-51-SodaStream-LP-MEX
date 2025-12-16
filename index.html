@@ -936,13 +936,48 @@
         background-color: var(--blue);
     }
 
+    #es-rc #es-rc-content .es-map {
+        height: 400px;
+        background-color: red;
+
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
     #es-rc #es-rc-content .es-saturator-benefits {
         overflow-x: auto;
 
+        display: none;
         padding: 2.063em;
-        display: flex;
         flex-direction: column;
         background-color: var(--blue);
+    }
+
+    #es-rc #es-rc-content .es-map.show,
+    #es-rc #es-rc-content .es-saturator-benefits.show {
+        display: flex;
+    }
+
+    #es-rc #es-rc-content .es-map__arrow,
+    #es-rc #es-rc-content .es-saturator-benefits__arrow {
+        font-size: 2.25em;
+        cursor: pointer;
+        padding: 0.19em 0;
+        background-color: var(--light-blue);
+
+        color: #000000;
+        text-align: center;
+
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    #es-rc #es-rc-content .es-map__arrow{
+        color: var(--white);
+        background-color: #f498c9;
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row {
@@ -1898,7 +1933,7 @@
             </div>
         </div>
 
-        <div class="es-saturator-benefits">
+        <div class="es-saturator-benefits show" id="so-51-benefity-saturatorow">
             <div class="es-saturator-benefits__row">
                 <div class="es-saturator-benefits__row-cell"></div>
                 <div class="es-saturator-benefits__row-cell">
@@ -2124,6 +2159,7 @@
                 </div>
             </div>
         </div>
+        <div class="es-saturator-benefits__arrow" onclick="toggleSection.call(this, 'so-51-benefity-saturatorow')">&#9650;</div>
 
         <div class="es-get-to-know-saturators--orange" id="so-51-butelki">
             <div class="es-get-to-know-saturators--orange__enso">
@@ -2276,9 +2312,10 @@
             </div>
         </div>
 
-        <div style="height: 400px; background-color: red; display: flex; justify-content: center; align-items: center;">
+        <div class="es-map show" id="so-51-mapa">
             Map
         </div>
+        <div class="es-map__arrow" onclick="toggleSection.call(this, 'so-51-mapa')">&#9650;</div>
 
         <div class="es-bottles-gallery">
             <div class="es-bottles-gallery__left">
@@ -2507,7 +2544,7 @@
                             nabój CO<sub>2</sub>.
                             <br><br>
                             3. <span class="es-accordion__element-content--bold">Odbierz zamówiony nabój CO<sub>2</sub> :</span>
-                            Udaj się do wybranego sklepu Media Expert. Oddaj pusty nabój CO<sub>2</sub> i wymień go na
+                            Udaj się do wybranego sklepu Media Expert. Oddaj pusty nabój CO<sub>2</sub> i wymień go nascrollToSection
                             pełny.
                             Za wymianę możesz zapłacić przy kasie kartą, gotówką lub za pomocą karty podarunkowej.
                         </p>
@@ -2521,9 +2558,10 @@
     </div>
 </div>
 
-<script src="./js/script.js"></script>
+<script src="js/accordionSection.js"></script>
 <script src="./js/swiper-bundle.min.js"></script>
 <script src="./js/swiperInit.js"></script>
-<script src="./js/stickyProducts.js"></script>
-<script src="./js/counter.js"></script>
-<script src="./js/scrollTo.js"></script>
+<script src="js/stickySection.js"></script>
+<script src="js/countersSection.js"></script>
+<script src="js/scrollToSection.js"></script>
+<script src="js/toggleSectionVisibility.js"></script>
