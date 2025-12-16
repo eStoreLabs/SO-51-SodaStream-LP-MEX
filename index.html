@@ -845,6 +845,7 @@
 
         text-decoration: none;
         color: var(--white);
+        cursor: pointer;
     }
 
     #es-rc #es-rc-content .es-products__item-title {
@@ -936,6 +937,8 @@
     }
 
     #es-rc #es-rc-content .es-saturator-benefits {
+        overflow-x: auto;
+
         padding: 2.063em;
         display: flex;
         flex-direction: column;
@@ -943,12 +946,16 @@
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row {
-        width: 100%;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(6, 187px);
     }
 
-    #es-rc #es-rc-content .es-saturator-benefits__row:first-child {
-        border-bottom: 2px solid var(--white);
+    #es-rc #es-rc-content .es-saturator-benefits__row:first-child > .es-saturator-benefits__row-cell {
+        padding: 0;
+    }
+
+    #es-rc #es-rc-content .es-saturator-benefits__row:nth-child(2) > .es-saturator-benefits__row-cell {
+        border-top: 2px solid var(--white);
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row-cell {
@@ -970,10 +977,19 @@
         justify-content: flex-end;
     }
 
+    #es-rc #es-rc-content .es-saturator-benefits__row:first-child .es-saturator-benefits__row-cell-img {
+        display: block;
+        margin: 0 auto; /* center horizontally */
+        width: auto;    /* keeps original width */
+        height: auto;   /* keeps original height */
+        max-width: none; /* prevent scaling down */
+    }
+
     #es-rc #es-rc-content .es-saturator-benefits__row:first-child .es-saturator-benefits__row-cell-title {
         font-size: 1.25em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
         text-align: center;
+        margin-bottom: 2.125em;
     }
 
     #es-rc #es-rc-content .es-saturator-benefits__row-cell:first-child {
@@ -1727,28 +1743,6 @@
             font-size: 20px;
         }
     }
-
-    @media screen and (min-width: 1800px) {
-        #es-rc #es-rc-content .es-faq .es-accordion__element-content {
-            font-size: 30px;
-        }
-
-        #es-rc #es-rc-content .es-faq .es-accordion__element {
-            padding-bottom: 40px;
-            padding-left: 12%;
-        }
-
-        #es-rc #es-rc-content .es-faq .es-accordion .es-accordion__arrow {
-            width: 30px;
-            left: 15px;
-            top: 35px;
-        }
-
-        #es-rc #es-rc-content .es-faq .es-accordion__title {
-            padding-top: 25px;
-            font-size: 30px;
-        }
-    }
 </style>
 
 <div id="es-rc">
@@ -1779,46 +1773,46 @@
         </div>
 
         <div class="es-products">
-            <a href="#so-51-promocje" class="es-products__item">
+            <div data-target="so-51-promocje" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/promocje-icon.png"/>
                 <h3 class="es-products__item-title">promocje</h3>
-            </a>
+            </div>
 
 
-            <a href="#so-51-saturatory" class="es-products__item">
+            <div data-target="so-51-saturatory" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/saturatory-icon.png"/>
                 <h3 class="es-products__item-title">saturatory</h3>
-            </a>
+            </div>
 
 
-            <a href="#so-51-butelki" class="es-products__item">
+            <div data-target="so-51-butelki" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/butelki-icon.png"/>
                 <h3 class="es-products__item-title">butelki</h3>
-            </a>
+            </div>
 
 
-            <a href="#so-51-syropy" class="es-products__item">
+            <div data-target="so-51-syropy" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/syropy-icon.png"/>
                 <h3 class="es-products__item-title">syropy</h3>
-            </a>
+            </div>
 
 
-            <a href="#so-51-cylindry" class="es-products__item">
+            <div data-target="so-51-cylindry" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/cylindry-icon.png"/>
                 <h3 class="es-products__item-title">cylindry</h3>
-            </a>
+            </div>
 
 
-            <a href="#so-51-dlaczego" class="es-products__item">
+            <div data-target="so-51-dlaczego" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/dlaczego-icon.png"/>
                 <h3 class="es-products__item-title">dlaczego warto<br/>pić lepiej?</h3>
-            </a>
+            </div>
 
 
-            <a href="#so-51-pytania" class="es-products__item">
+            <div data-target="so-51-pytania" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/pytania-icon.png"/>
                 <h3 class="es-products__item-title">pytania<br/>i odpowiedzi</h3>
-            </a>
+            </div>
         </div>
 
         <div class="es-slider" id="so-51-promocje">
@@ -2532,3 +2526,4 @@
 <script src="./js/swiperInit.js"></script>
 <script src="./js/stickyProducts.js"></script>
 <script src="./js/counter.js"></script>
+<script src="./js/scrollTo.js"></script>
