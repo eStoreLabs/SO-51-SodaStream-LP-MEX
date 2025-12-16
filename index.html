@@ -762,13 +762,13 @@
         --pink: #e3077d;
         --green: #1a6913;
 
+        max-width: 1200px;
         margin: 0 auto;
         padding: 0;
         font-family: "HurmeGeometricSans3-Regular", sans-serif;
         font-weight: 300;
         font-size: 16px;
         line-height: 1.2;
-        max-width: 100vw;
         overflow: hidden;
         background-color: #ffffff;
         color: var(--white);
@@ -803,6 +803,7 @@
         align-items: flex-start;
         padding: 9% 8%;
 
+        aspect-ratio: 16 / 9;
         background-image: url(./img/kv-background.jpg);
         background-size: cover;
         background-position: center;
@@ -818,16 +819,16 @@
     }
 
     #es-rc #es-rc-content .es-kv__title {
-        font-size: 5.9375em;
+        font-size: 5.938em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
     }
 
     #es-rc #es-rc-content .es-products {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-around;
 
-        gap: 46px;
+        gap: 2.625em;
         padding: 1em 1.313em;
         background-color: var(--blue);
 
@@ -854,8 +855,8 @@
 
     #es-rc #es-rc-content .es-products__item-img {
         max-width: unset;
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators {
@@ -1713,29 +1714,7 @@
         }
     }
 
-    @media screen and (min-width: 360px) {
-        #es-rc #es-rc-content .es-kv {
-            height: 650px;
-        }
-    }
-
-    @media screen and (min-width: 400px) {
-        #es-rc #es-rc-content .es-kv {
-            height: 850px;
-        }
-    }
-
-    @media screen and (min-width: 550px) {
-        #es-rc #es-rc-content .es-kv {
-            height: 975px;
-        }
-    }
-
     @media screen and (min-width: 650px) {
-        #es-rc #es-rc-content .es-kv {
-            height: 1200px;
-        }
-
         #es-rc #es-rc-content .es-faq .es-accordion {
             max-width: none;
         }
@@ -1746,18 +1725,6 @@
 
         #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
             font-size: 20px;
-        }
-    }
-
-    @media screen and (min-width: 998px) {
-        #es-rc #es-rc-content .es-kv {
-            height: 480px;
-        }
-    }
-
-    @media screen and (min-width: 1200px) {
-        #es-rc #es-rc-content .es-kv {
-            height: 683px;
         }
     }
 
@@ -1812,44 +1779,49 @@
         </div>
 
         <div class="es-products">
-            <a href="#" class="es-products__item">
+            <a href="#so-51-promocje" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/promocje-icon.png"/>
                 <h3 class="es-products__item-title">promocje</h3>
             </a>
 
 
-            <a href="#" class="es-products__item">
+            <a href="#so-51-saturatory" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/saturatory-icon.png"/>
                 <h3 class="es-products__item-title">saturatory</h3>
             </a>
 
 
-            <a href="#" class="es-products__item">
+            <a href="#so-51-butelki" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/butelki-icon.png"/>
                 <h3 class="es-products__item-title">butelki</h3>
             </a>
 
 
-            <a href="#" class="es-products__item">
+            <a href="#so-51-syropy" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/syropy-icon.png"/>
                 <h3 class="es-products__item-title">syropy</h3>
             </a>
 
 
-            <a href="#" class="es-products__item">
+            <a href="#so-51-cylindry" class="es-products__item">
+                <img class="es-products__item-img" alt="" src="./img/cylindry-icon.png"/>
+                <h3 class="es-products__item-title">cylindry</h3>
+            </a>
+
+
+            <a href="#so-51-dlaczego" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/dlaczego-icon.png"/>
                 <h3 class="es-products__item-title">dlaczego warto<br/>pić lepiej?</h3>
             </a>
 
 
-            <a href="#" class="es-products__item">
+            <a href="#so-51-pytania" class="es-products__item">
                 <img class="es-products__item-img" alt="" src="./img/pytania-icon.png"/>
                 <h3 class="es-products__item-title">pytania<br/>i odpowiedzi</h3>
             </a>
-
         </div>
 
-        <div class="es-slider">
+        <div class="es-slider" id="so-51-promocje">
             <!-- Slider main container -->
             <div class="swiper es-swiper">
                 <!-- Additional required wrapper -->
@@ -1886,7 +1858,7 @@
             </div>
         </div>
 
-        <div class="es-get-to-know-saturators">
+        <div class="es-get-to-know-saturators" id="so-51-saturatory">
             <div class="es-get-to-know-saturators__enso">
                 <div class="es-get-to-know-saturators__enso-saturator">
                     <img class="es-get-to-know-saturators__enso-saturator-img"
@@ -2159,7 +2131,7 @@
             </div>
         </div>
 
-        <div class="es-get-to-know-saturators--orange">
+        <div class="es-get-to-know-saturators--orange" id="so-51-butelki">
             <div class="es-get-to-know-saturators--orange__enso">
                 <div class="es-get-to-know-saturators--orange__enso-content">
                     <h3 class="es-get-to-know-saturators--orange__enso-content-title">
@@ -2207,7 +2179,7 @@
             </div>
         </div>
 
-        <div class="es-get-to-know-saturators--green">
+        <div class="es-get-to-know-saturators--green" id="so-51-syropy">
             <div class="es-get-to-know-saturators--green__enso">
                 <div class="es-get-to-know-saturators--green__enso-saturator">
                     <img class="es-get-to-know-saturators--green__enso-saturator-img"
@@ -2252,7 +2224,7 @@
             </div>
         </div>
 
-        <div class="es-get-to-know-saturators--pink">
+        <div class="es-get-to-know-saturators--pink" id="so-51-cylindry">
             <div class="es-get-to-know-saturators--pink__enso">
                 <div class="es-get-to-know-saturators--pink__enso-content">
                     <h3 class="es-get-to-know-saturators--pink__enso-content-title">
@@ -2341,7 +2313,7 @@
             </div>
         </div>
 
-        <div class="es-bottle-counters">
+        <div class="es-bottle-counters" id="so-51-dlaczego">
             <div class="es-bottle-counters__litres">
                 <div class="es-bottle-counters__litres-col">
                     <p>
@@ -2386,7 +2358,7 @@
             </div>
         </div>
 
-        <div class="es-faq">
+        <div class="es-faq" id="so-51-pytania">
             <h2 class="es-faq__title">Co warto wiedzieć o Sodastream?</h2>
             <div class="es-accordion">
                 <div class="es-accordion__element">
