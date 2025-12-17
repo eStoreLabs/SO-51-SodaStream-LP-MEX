@@ -7,7 +7,7 @@
     placeholder.style.height = products.offsetHeight + 'px';
 
     function resetSticky() {
-        products.classList.remove('fixed');
+        products.classList.remove('es-products--fixed');
         products.style.position = 'static';
         products.style.top = '';
         if (placeholder.parentNode) {
@@ -22,8 +22,8 @@
         }
 
         if (window.scrollY > offset) {
-            if (!products.classList.contains('fixed')) {
-                products.classList.add('fixed');
+            if (!products.classList.contains('es-products--fixed')) {
+                products.classList.add('es-products--fixed');
                 products.style.position = 'fixed';
                 products.style.top = '0';
                 products.parentNode.insertBefore(placeholder, products);

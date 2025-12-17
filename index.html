@@ -1078,6 +1078,7 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+        font-size: 10px;
     }
 
     #es-rc #es-rc-content .es-bottle-exchange-mobile__top {
@@ -1094,15 +1095,25 @@
     #es-rc #es-rc-content div.es-bottle-exchange-mobile__top-price {
         width: 75px;
         height: 75px;
+        margin-left: 10px;
+        margin-top: 10px;
+
+        position: absolute;
+        right: unset;
+        bottom: unset;
+        top: unset;
+        left: unset;
+        transform: unset;
     }
 
     #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom {
         flex: 1;
         background-color: var(--pink);
-    }
 
-    #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom-title {
-
+        display: flex;
+        gap: 3em;
+        flex-direction: column;
+        justify-content: center;
     }
 
     #es-rc #es-rc-content .es-bottle-exchange__top-title {
@@ -1115,6 +1126,13 @@
         top: 1%;
         left: 50%;
         transform: translate(-100%, 0%);
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom-title {
+        line-height: 1em;
+        font-size: 3em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
+        text-align: center;
     }
 
     #es-rc #es-rc-content .es-bottle-exchange__bottom-title {
@@ -1535,6 +1553,11 @@
         width: 100%;
     }
 
+    #es-rc #es-rc-content .es-slider__slide__right > .es-slide__img:nth-child(1),
+    #es-rc #es-rc-content .es-slider__slide__left > .es-slide__img:nth-child(1) {
+        display: none;
+    }
+
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-content-title {
         padding-inline: 1em;
         text-align: center;
@@ -1720,6 +1743,8 @@
 
 
     #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content-title {
+        padding-top: 1em;
+        padding-inline: 1em;
         text-align: center;
         font-size: 3.75em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
@@ -1784,7 +1809,6 @@
 
     #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
         padding-top: 0.5em;
-        padding-inline: 4.063em;
         display: flex;
         gap: 2.5em;
         flex-direction: column;
@@ -1792,6 +1816,7 @@
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-saturator {
+        width: 100%;
         flex: 0.3;
         display: flex;
         justify-content: flex-end;
@@ -1868,6 +1893,16 @@
         #es-rc #es-rc-content .es-saturators-carousel-and-video {
             flex-direction: row;
         }
+
+        #es-rc #es-rc-content .es-slider__slide__right > .es-slide__img:nth-child(1),
+        #es-rc #es-rc-content .es-slider__slide__left > .es-slide__img:nth-child(1) {
+            display: block;
+        }
+
+        #es-rc #es-rc-content .es-slider__slide__right > .es-slide__img:nth-child(2),
+        #es-rc #es-rc-content .es-slider__slide__left > .es-slide__img:nth-child(2) {
+            display: none;
+        }
     }
 
     @media screen and (min-width: 875px) {
@@ -1877,9 +1912,26 @@
         }
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1034px) {
+        #es-rc #es-rc-content .es-products--fixed.es-products {
+            border-left: 8px solid var(--white);
+            border-right: 8px solid var(--white);
+        }
+    }
+
+    @media screen and (min-width: 1232px) {
+        #es-rc #es-rc-content .es-products--fixed.es-products {
+            border: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         #es-rc #es-rc-content .es-bottle-exchange {
-            display: block
+            display: block;
+        }
+
+        #es-rc #es-rc-content .es-bottle-exchange-mobile {
+            display: none;
         }
 
         #es-rc #es-rc-content .es-kv__title {
@@ -1990,12 +2042,18 @@
                             <img src="./img/slide-1.jpg"
                                  alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki SodaStream prosto do szklanki z kostkami lodu"
                                  class="es-slide__img"/>
+                            <img src="./img/slide-1-mobile.png"
+                                 alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki SodaStream prosto do szklanki z kostkami lodu"
+                                 class="es-slide__img"/>
                         </div>
                     </div>
 
                     <div class="swiper-slide es-slider__slide es-slider__slide--2">
                         <div class="es-slider__slide__left">
                             <img src="./img/slide-2.jpg"
+                                 alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki SodaStream prosto do szklanki z kostkami lodu"
+                                 class="es-slide__img"/>
+                            <img src="./img/slide-2-mobile.png"
                                  alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki SodaStream prosto do szklanki z kostkami lodu"
                                  class="es-slide__img"/>
                         </div>
