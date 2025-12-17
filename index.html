@@ -767,7 +767,7 @@
         padding: 0;
         font-family: "HurmeGeometricSans3-Regular", sans-serif;
         font-weight: 300;
-        font-size: 16px;
+        font-size: 10px;
         line-height: 1.2;
         overflow: hidden;
         background-color: #ffffff;
@@ -800,8 +800,9 @@
     #es-rc #es-rc-content .es-kv {
         display: flex;
         flex-direction: column;
+        gap: 1em;
         align-items: flex-start;
-        padding: 9% 8%;
+        padding: 9% 4%;
 
         aspect-ratio: 16 / 9;
         background-image: url(./img/kv-background.jpg);
@@ -814,18 +815,20 @@
     }
 
     #es-rc #es-rc-content .es-kv__logo-img {
-        width: 100%;
+        width: 42vw;
         max-width: 531px;
     }
 
     #es-rc #es-rc-content .es-kv__title {
-        font-size: 5.938em;
+        font-size: 7vw;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
     }
 
     #es-rc #es-rc-content .es-products {
+        overflow-x: auto;
+
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-around;
 
         gap: 2.625em;
@@ -841,7 +844,7 @@
     }
 
     #es-rc #es-rc-content .es-products__item {
-        width: fit-content;
+        width: 125px;
 
         text-decoration: none;
         color: var(--white);
@@ -867,6 +870,9 @@
     #es-rc #es-rc-content .es-get-to-know-saturators__enso {
         padding: 0.888em;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5em;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators__enso-saturator {
@@ -888,9 +894,12 @@
 
     #es-rc #es-rc-content .es-get-to-know-saturators__menu {
         display: flex;
+        overflow-x: auto;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators__menu > a {
+        min-width: 6.944em;
+
         flex: 1;
         padding: 1.438em 0;
         background-color: var(--light-blue);
@@ -932,6 +941,7 @@
 
     #es-rc #es-rc-content .es-saturators-carousel-and-video {
         display: flex;
+        flex-direction: column;
         padding: 0 1.875em 2.5em;
         background-color: var(--blue);
     }
@@ -1106,16 +1116,20 @@
         transform: translate(-210%, -165%);
     }
 
-    #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(1) {
+    #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(1),
+    #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(3) {
         font-size: 1.375em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
     }
 
     #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(2) {
         font-size: 1.25em;
+        font-family: "HurmeGeometricSans3-Bold", sans-serif;
     }
 
     #es-rc #es-rc-content .es-bottles-gallery {
         display: flex;
+        flex-direction: column;
         background-color: var(--green);
     }
 
@@ -1135,6 +1149,7 @@
     }
 
     #es-rc #es-rc-content .es-bottles-gallery__right {
+        min-height: 370px;
         flex: 1;
 
         display: flex;
@@ -1224,7 +1239,7 @@
     #es-rc #es-rc-content .es-bottle-counters {
         display: flex;
         flex-direction: column;
-        gap: 1.813em;
+        gap: 5em;
 
         padding: 2.688em 1.813em;
         background-color: #9cb644;
@@ -1232,7 +1247,8 @@
 
     #es-rc #es-rc-content .es-bottle-counters__litres {
         display: flex;
-        gap: 1.813em;
+        flex-direction: column;
+        gap: 5em;
         justify-content: space-around;
         align-items: center;
     }
@@ -1255,6 +1271,11 @@
 
     #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(3) {
         font-size: 1.25em;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__references > p > sup,
+    #es-rc #es-rc-content .es-bottle-counters__litres-col > p > sup {
+        font-size: 0.6em;
     }
 
     #es-rc #es-rc-content .es-bottle-counters__references-text {
@@ -1480,6 +1501,7 @@
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-content-title {
+        padding-inline: 1em;
         text-align: center;
         font-size: 3.75em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
@@ -1488,9 +1510,11 @@
 
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu {
         display: flex;
+        overflow-x: auto;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu > a {
+        min-width: 125px;
         flex: 1;
         padding: 1.438em 0;
         background-color: var(--orange);
@@ -1523,6 +1547,7 @@
 
     #es-rc #es-rc-content .es-saturators-carousel-and-video--orange {
         display: flex;
+        flex-direction: column;
         padding: 0 1.875em 2.5em;
         background-color: #fde993;
     }
@@ -1543,12 +1568,16 @@
 
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso {
         padding-top: 2.25em;
-        padding-inline: 4.063em;
+
         display: flex;
+        gap: 2.5em;
+        flex-direction: column;
+        align-items: center;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-saturator {
         flex: 0.3;
+        padding-inline: 4.063em;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-saturator-img {
@@ -1572,13 +1601,15 @@
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--green__menu {
+        overflow-x: auto;
         display: flex;
+        background-color: var(--green);
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--green__menu > a {
+        min-width: 125px;
         flex: 1;
         padding: 1.438em 0;
-        background-color: var(--green);
         border-right: 1px solid var(--white);
         transition: background-color 0.3s;
 
@@ -1608,6 +1639,7 @@
 
     #es-rc #es-rc-content .es-saturators-carousel-and-video--green {
         display: flex;
+        flex-direction: column;
         padding: 0 1.875em 2.5em;
         background-color: #d4dd7c;
     }
@@ -1630,6 +1662,9 @@
         padding-top: 2.25em;
         padding-inline: 4.063em;
         display: flex;
+        gap: 2.5em;
+        flex-direction: column-reverse;
+        align-items: center;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-saturator {
@@ -1650,7 +1685,7 @@
 
 
     #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content-title {
-        text-align: left;
+        text-align: center;
         font-size: 3.75em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
         color: var(--white);
@@ -1693,6 +1728,7 @@
 
     #es-rc #es-rc-content .es-saturators-carousel-and-video--pink {
         display: flex;
+        flex-direction: column;
         padding: 0 1.875em 2.5em;
         background-color: #67043a;
     }
@@ -1713,8 +1749,11 @@
 
     #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
         padding-top: 0.5em;
-        padding-left: 4.063em;
+        padding-inline: 4.063em;
         display: flex;
+        gap: 2.5em;
+        flex-direction: column;
+        align-items: center;
     }
 
     #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-saturator {
@@ -1733,6 +1772,20 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
+    }
+
+    @media screen and (min-width: 650px) {
+        #es-rc #es-rc-content .es-faq .es-accordion {
+            max-width: none;
+        }
+
+        #es-rc #es-rc-content .es-faq .es-accordion__title {
+            font-size: 20px;
+        }
+
+        #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
+            font-size: 20px;
+        }
     }
 
     @container es-rc-content (min-width: 660px) {
@@ -1765,17 +1818,49 @@
         }
     }
 
-    @media screen and (min-width: 650px) {
-        #es-rc #es-rc-content .es-faq .es-accordion {
-            max-width: none;
+    @media screen and (min-width: 576px) {
+        #es-rc #es-rc-content {
+            font-size: 16px;
         }
 
-        #es-rc #es-rc-content .es-faq .es-accordion__title {
-            font-size: 20px;
+        #es-rc #es-rc-content .es-bottle-counters {
+            gap: 1.813em;
         }
 
-        #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
-            font-size: 20px;
+        #es-rc #es-rc-content .es-bottle-counters__litres {
+            flex-direction: row;
+            gap: 1.813em;
+        }
+
+        #es-rc #es-rc-content .es-bottles-gallery,
+        #es-rc #es-rc-content .es-saturators-carousel-and-video--pink,
+        #es-rc #es-rc-content .es-saturators-carousel-and-video--green,
+        #es-rc #es-rc-content .es-saturators-carousel-and-video--orange,
+        #es-rc #es-rc-content .es-saturators-carousel-and-video {
+            flex-direction: row;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        #es-rc #es-rc-content .es-kv__title {
+            font-size: 5.938em;
+        }
+
+        #es-rc #es-rc-content .es-get-to-know-saturators__enso,
+        #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso,
+        #es-rc #es-rc-content .es-get-to-know-saturators--green__enso,
+        #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso {
+            gap: unset;
+            flex-direction: row;
+            align-items: unset;
+        }
+
+        #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
+            padding-right: unset;
+        }
+
+        #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content-title {
+            text-align: left;
         }
     }
 </style>
@@ -2191,7 +2276,7 @@
                     dostępnych wariantów znajdziesz zarówno eleganckie butelki na co dzień, jak i kompaktowe modele,
                     idealne na spacer czy siłownię. W ofercie dostępne są również termiczne butelki Fizz&Go, które
                     pozwalają przygotować napój gazowany bezpośrednio w butelce i – dzięki podwójnym ściankom –
-                    utrzymują jego temperaturę nawet do 12 godzin. Wybierz wersję najlepiej dopasowaną do swoich potrzeb
+                    utrzymają jego temperaturę nawet do 12 godzin. Wybierz wersję najlepiej dopasowaną do swoich potrzeb
                     i nie rozstawaj się z bąbelkami ani na chwilę!
                 </p>
             </div>
@@ -2270,14 +2355,15 @@
 
             <div class="es-get-to-know-saturators--pink__desc">
                 <p class="es-get-to-know-saturators--pink__desc-text">
-                    Cylindry CO₂ to Twoje źródła świeżych bąbelków, które zmieniają zwykłą wodę w przyjemnie
+                    Cylindr CO₂ to Twoje źródło świeżych bąbelków, które zmienia zwykłą wodę w przyjemnie
                     orzeźwiający napój — zawsze wtedy, gdy masz na to ochotę. Każdy cylinder pozwala przygotować aż do
                     60 litrów gazowanej wody, co sprawia, że codzienne orzeźwienie jest zawsze w zasięgu ręki.
                     <br/><br/>
-                    W ofercie Sodastream dostępne są dwa warianty cylindrów CO2:
-                    Różowy – cylinder z szybkim złączem (Quick Connect), dedykowany do modeli: Terra, Art, Duo, Enso
+                    W ofercie Sodastream dostępne są dwa warianty cylindrów CO₂:
+                    <br/>Różowy – cylinder z szybkim złączem (Quick Connect), dedykowany do modeli: Terra, Art, Duo,
+                    Enso
                     oraz MIX.
-                    Niebieski – cylinder z wkręcanym gwintem (Twist), pasujący do modeli: Spirit, Jet oraz Source.
+                    <br/>Niebieski – cylinder z wkręcanym gwintem (Twist), pasujący do modeli: Spirit, Jet oraz Source.
                 </p>
             </div>
         </div>
@@ -2302,13 +2388,14 @@
             </p>
             <p class="es-bottle-exchange__bottom-title">
                 wymień bezpiecznie<br />
-                pusty cylinder CO2 w jednym<br />
+                pusty cylinder CO₂ w jednym<br/>
                 z ponad 600 sklepów<br />
                 Media Expert
             </p>
             <div class="es-bottle-exchange__price">
-                <p>CENA</p>
-                <p>29,99 zł<br/>WYMIANY</p>
+                <p>cena</p>
+                <p>wymiany</p>
+                <p>29,99 zł</p>
             </div>
         </div>
 
@@ -2370,7 +2457,7 @@
 
                 <div class="es-bottle-counters__litres-col">
                     <p>
-                        1 cylinder CO<sub>2</sub><br />pozwala przygotować
+                        1 cylinder CO₂<br/>pozwala przygotować
                     </p>
                     <p>
                         <span id="counter3">0</span> litrów
@@ -2452,7 +2539,7 @@
                 </div>
                 <div class="es-accordion__element">
                     <p class="es-accordion__title es-acc-tab">
-                        Co zrobić z pustym nabojem CO<sub>2</sub>?
+                        Co zrobić z pustym nabojem CO₂?
                         <img class="es-accordion__arrow"
                              src="./img/check.png"
                              alt="Czy zawiera">
@@ -2460,7 +2547,7 @@
                     <div class="es-accordion__element-content acc-content">
                         <p>
                             <br><br>
-                            Pusty nabój CO<sub>2</sub> Sodastream można wymienić na pełny w jednym z setek sklepów sieci
+                            Pusty nabój CO₂ Sodastream można wymienić na pełny w jednym z setek sklepów sieci
                             Media
                             Expert, ponosząc jedynie koszt za gaz. Nabój można wymienić również online, zamawiając nowy
                             nabój do sklepu stacjonarnego Media Expert i oddając w sklepie pusty nabój.
@@ -2469,7 +2556,7 @@
                 </div>
                 <div class="es-accordion__element">
                     <p class="es-accordion__title es-acc-tab">
-                        Jaki nabój CO<sub>2</sub> wybrać do Sodastream?
+                        Jaki nabój CO₂ wybrać do Sodastream?
                         <img class="es-accordion__arrow"
                              src="./img/check.png"
                              alt="Czy zawiera">
@@ -2477,11 +2564,11 @@
                     <div class="es-accordion__element-content acc-content">
                         <p>
                             <br><br>
-                            Do większości saturatorów Sodastream pasują różowe naboje CO<sub>2</sub> z szybkim złączem
+                            Do większości saturatorów Sodastream pasują różowe naboje CO₂ z szybkim złączem
                             (Quick
                             Connect), które są łatwe i wygodne
                             w montażu. Są kompatybilne z modelami Sodastream Terra, Art, Duo, Ensō i MIX. W ofercie
-                            Sodastream znajdziesz również niebieskie naboje CO2 wyposażone we wkręcany system montażu
+                            Sodastream znajdziesz również niebieskie naboje CO₂ wyposażone we wkręcany system montażu
                             (Twist). Pasują one do starszych modeli saturatorów Sodastream, takich jak Jet, Source czy
                             Spirit.
                         </p>
@@ -2525,26 +2612,27 @@
                         <p>
                             <br><br>
                             <span class="es-accordion__element-content--list-heading">
-                            Pusty cylinder CO<sub>2</sub> możesz wymienić na pełny poprzez stronę mediaexpert.pl w 3 prostych krokach:
+                            Pusty cylinder CO₂ możesz wymienić na pełny poprzez stronę mediaexpert.pl w 3 prostych krokach:
                             </span><br>
                             1. <span class="es-accordion__element-content--bold">Złóż zamówienie online:</span> Znajdż
-                            na stronie mediaexpert.pl wymianę cylindra CO<sub>2</sub> dla wariantu naboju, który chcesz
+                            na stronie mediaexpert.pl wymianę cylindra CO₂ dla wariantu naboju, który chcesz
                             wymienić
-                            i dodaj do koszyka. Jeśli chcesz wymienić różowy nabój CO<sub>2</sub> z szybkim złączem
+                            i dodaj do koszyka. Jeśli chcesz wymienić różowy nabój CO₂ z szybkim złączem
                             (Quick-Connect), <a class="es-accordion__element-content--link"
-                                                href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-co2-gaz-spozywczy-wymienny-oryginalny-z-atestem-1">kliknij
+                                                href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-CO₂-gaz-spozywczy-wymienny-oryginalny-z-atestem-1">kliknij
                             tutaj</a>
-                            , a jeśli niebieski cyinder CO<sub>2</sub> z wkręcanym gwintem (Twist), <a
+                            , a jeśli niebieski cyinder CO₂ z wkręcanym gwintem (Twist), <a
                                 class="es-accordion__element-content--link"
-                                href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-co2-gaz-spozywczy-wymienny-oryginalny-z-atestem">kliknij
+                                href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-CO₂-gaz-spozywczy-wymienny-oryginalny-z-atestem">kliknij
                             tutaj</a>.
                             <br><br>
                             2. <span class="es-accordion__element-content--bold">Wybierz dogodny punkt odbioru:</span>
                             Podczas zamówienia wybierz sklep stacjonarny Media Expert, w którym chcesz odebrać
-                            nabój CO<sub>2</sub>.
+                            nabój CO₂.
                             <br><br>
-                            3. <span class="es-accordion__element-content--bold">Odbierz zamówiony nabój CO<sub>2</sub> :</span>
-                            Udaj się do wybranego sklepu Media Expert. Oddaj pusty nabój CO<sub>2</sub> i wymień go nascrollToSection
+                            3. <span class="es-accordion__element-content--bold">Odbierz zamówiony nabój CO₂ :</span>
+                            Udaj się do wybranego sklepu Media Expert. Oddaj pusty nabój CO₂ i wymień go
+                            nascrollToSection
                             pełny.
                             Za wymianę możesz zapłacić przy kasie kartą, gotówką lub za pomocą karty podarunkowej.
                         </p>
