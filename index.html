@@ -1063,6 +1063,8 @@
     }
 
     #es-rc #es-rc-content .es-bottle-exchange {
+        display: none;
+
         position: relative;
         padding: 22.25%;
         background-image: url("./img/exchange-bottle.png");
@@ -1070,6 +1072,37 @@
         background-size: contain;
         background-position: center;
         background-color: var(--pink);
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange-mobile {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__top {
+        flex: 1;
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top;
+        background-image: url("./img/exchange-bottle.png");
+        background-color: var(--pink);
+    }
+
+    #es-rc #es-rc-content div.es-bottle-exchange-mobile__top-price {
+        width: 75px;
+        height: 75px;
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom {
+        flex: 1;
+        background-color: var(--pink);
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom-title {
+
     }
 
     #es-rc #es-rc-content .es-bottle-exchange__top-title {
@@ -1097,6 +1130,7 @@
         transform: translate(0, -20%);
     }
 
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price,
     #es-rc #es-rc-content .es-bottle-exchange__price {
         width: 125px;
         height: 125px;
@@ -1116,11 +1150,14 @@
     }
 
     #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(1),
-    #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(3) {
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price > p:nth-child(1),
+    #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(3),
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price > p:nth-child(3) {
         font-size: 1.375em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
     }
 
+    #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price > p:nth-child(2),
     #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(2) {
         font-size: 1.25em;
         font-family: "HurmeGeometricSans3-Bold", sans-serif;
@@ -1128,7 +1165,7 @@
 
     #es-rc #es-rc-content .es-bottles-gallery {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         background-color: var(--green);
     }
 
@@ -1148,9 +1185,8 @@
     }
 
     #es-rc #es-rc-content .es-bottles-gallery__right {
-        min-height: 370px;
+        aspect-ratio: 16 / 9;
         flex: 1;
-
         display: flex;
         gap: 0.5em;
     }
@@ -1826,12 +1862,6 @@
             gap: 1.813em;
         }
 
-        #es-rc #es-rc-content .es-bottle-counters__litres {
-            flex-direction: row;
-            gap: 1.813em;
-        }
-
-        #es-rc #es-rc-content .es-bottles-gallery,
         #es-rc #es-rc-content .es-saturators-carousel-and-video--pink,
         #es-rc #es-rc-content .es-saturators-carousel-and-video--green,
         #es-rc #es-rc-content .es-saturators-carousel-and-video--orange,
@@ -1840,9 +1870,24 @@
         }
     }
 
+    @media screen and (min-width: 875px) {
+        #es-rc #es-rc-content .es-bottle-counters__litres {
+            flex-direction: row;
+            gap: 1.813em;
+        }
+    }
+
     @media screen and (min-width: 1200px) {
+        #es-rc #es-rc-content .es-bottle-exchange {
+            display: block
+        }
+
         #es-rc #es-rc-content .es-kv__title {
             font-size: 5.938em;
+        }
+
+        #es-rc #es-rc-content .es-bottles-gallery {
+            flex-direction: row;
         }
 
         #es-rc #es-rc-content .es-get-to-know-saturators__enso,
@@ -2395,6 +2440,31 @@
                 <p>cena</p>
                 <p>wymiany</p>
                 <p>29,99 zł</p>
+            </div>
+        </div>
+
+        <div class="es-bottle-exchange-mobile">
+            <div class="es-bottle-exchange-mobile__top">
+                <div class="es-bottle-exchange-mobile__top-price">
+                    <p>cena</p>
+                    <p>wymiany</p>
+                    <p>29,99 zł</p>
+                </div>
+            </div>
+
+            <div class="es-bottle-exchange-mobile__bottom">
+                <p class="es-bottle-exchange-mobile__bottom-title">
+                    gazuj<br />
+                    wymień<br />
+                    zyskaj
+                </p>
+
+                <p class="es-bottle-exchange-mobile__bottom-title">
+                    wymień bezpiecznie<br />
+                    pusty cylinder CO₂ w jednym<br/>
+                    z ponad 600 sklepów<br />
+                    Media Expert
+                </p>
             </div>
         </div>
 
