@@ -1063,11 +1063,10 @@
     }
 
     #es-rc #es-rc-content .es-bottle-exchange {
-        display: none;
-
+        font-size: 3px;
         position: relative;
         padding: 22.25%;
-        background-image: url("./img/exchange-bottle.png");
+        background-image: url("./img/exchange-bottle.jpg");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -1834,6 +1833,12 @@
         justify-content: flex-start;
     }
 
+    @media screen and (min-width: 427px) {
+        #es-rc #es-rc-content .es-bottle-exchange {
+            font-size: 5px;
+        }
+    }
+
     @media screen and (min-width: 650px) {
         #es-rc #es-rc-content .es-faq .es-accordion {
             max-width: none;
@@ -1879,6 +1884,10 @@
     }
 
     @media screen and (min-width: 576px) {
+        #es-rc #es-rc-content .es-bottle-exchange {
+            font-size: 7px;
+        }
+
         #es-rc #es-rc-content {
             font-size: 16px;
         }
@@ -1906,6 +1915,10 @@
     }
 
     @media screen and (min-width: 875px) {
+        #es-rc #es-rc-content .es-bottle-exchange {
+            font-size: 11px;
+        }
+
         #es-rc #es-rc-content .es-bottle-counters__litres {
             flex-direction: row;
             gap: 1.813em;
@@ -1920,6 +1933,10 @@
     }
 
     @media screen and (min-width: 1232px) {
+        #es-rc #es-rc-content .es-bottle-exchange {
+            font-size: 16px;
+        }
+
         #es-rc #es-rc-content .es-products--fixed.es-products {
             border: 0;
             max-width: 1200px;
@@ -2494,36 +2511,6 @@
                 z ponad 600 sklepów<br />
                 Media Expert
             </p>
-            <div class="es-bottle-exchange__price">
-                <p>cena</p>
-                <p>wymiany</p>
-                <p>29,99 zł</p>
-            </div>
-        </div>
-
-        <div class="es-bottle-exchange-mobile">
-            <div class="es-bottle-exchange-mobile__top">
-                <div class="es-bottle-exchange-mobile__top-price">
-                    <p>cena</p>
-                    <p>wymiany</p>
-                    <p>29,99 zł</p>
-                </div>
-            </div>
-
-            <div class="es-bottle-exchange-mobile__bottom">
-                <p class="es-bottle-exchange-mobile__bottom-title">
-                    gazuj<br />
-                    wymień<br />
-                    zyskaj
-                </p>
-
-                <p class="es-bottle-exchange-mobile__bottom-title">
-                    wymień bezpiecznie<br />
-                    pusty cylinder CO₂ w jednym<br/>
-                    z ponad 600 sklepów<br />
-                    Media Expert
-                </p>
-            </div>
         </div>
 
         <div class="es-map show" id="so-51-mapa">
