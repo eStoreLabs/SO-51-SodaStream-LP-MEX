@@ -1,7 +1,7 @@
 <meta charset="UTF-8" />
-
-    <style>
-      /**
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  /**
  * Swiper 11.2.10
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
@@ -13,3285 +13,3166 @@
  * Released on: June 28, 2025
  */
 
-      :root {
-        --swiper-theme-color: #007aff;
-      }
-
-      :host {
-        position: relative;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 1;
-      }
-
-      .swiper {
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        overflow: hidden;
-        list-style: none;
-        padding: 0;
-        z-index: 1;
-        display: block;
-      }
-
-      .swiper-vertical > .swiper-wrapper {
-        flex-direction: column;
-      }
-
-      .swiper-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: flex;
-        transition-property: transform;
-        transition-timing-function: var(
-          --swiper-wrapper-transition-timing-function,
-          initial
-        );
-        box-sizing: content-box;
-      }
-
-      .swiper-android .swiper-slide,
-      .swiper-ios .swiper-slide,
-      .swiper-wrapper {
-        transform: translate3d(0px, 0, 0);
-      }
-
-      .swiper-horizontal {
-        touch-action: pan-y;
-      }
-
-      .swiper-vertical {
-        touch-action: pan-x;
-      }
-
-      .swiper-slide {
-        flex-shrink: 0;
-        width: 100%;
-        height: 100%;
-        position: relative;
-        transition-property: transform;
-        display: block;
-      }
-
-      .swiper-slide-invisible-blank {
-        visibility: hidden;
-      }
-
-      .swiper-autoheight,
-      .swiper-autoheight .swiper-slide {
-        height: auto;
-      }
-
-      .swiper-autoheight .swiper-wrapper {
-        align-items: flex-start;
-        transition-property: transform, height;
-      }
-
-      .swiper-backface-hidden .swiper-slide {
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-
-      .swiper-3d.swiper-css-mode .swiper-wrapper {
-        perspective: 1200px;
-      }
-
-      .swiper-3d .swiper-wrapper {
-        transform-style: preserve-3d;
-      }
-
-      .swiper-3d {
-        perspective: 1200px;
-      }
-
-      .swiper-3d .swiper-cube-shadow,
-      .swiper-3d .swiper-slide {
-        transform-style: preserve-3d;
-      }
-
-      .swiper-css-mode > .swiper-wrapper {
-        overflow: auto;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-
-      .swiper-css-mode > .swiper-wrapper::-webkit-scrollbar {
-        display: none;
-      }
-
-      .swiper-css-mode > .swiper-wrapper > .swiper-slide {
-        scroll-snap-align: start start;
-      }
-
-      .swiper-css-mode.swiper-horizontal > .swiper-wrapper {
-        scroll-snap-type: x mandatory;
-      }
-
-      .swiper-css-mode.swiper-vertical > .swiper-wrapper {
-        scroll-snap-type: y mandatory;
-      }
-
-      .swiper-css-mode.swiper-free-mode > .swiper-wrapper {
-        scroll-snap-type: none;
-      }
-
-      .swiper-css-mode.swiper-free-mode > .swiper-wrapper > .swiper-slide {
-        scroll-snap-align: none;
-      }
-
-      .swiper-css-mode.swiper-centered > .swiper-wrapper::before {
-        content: "";
-        flex-shrink: 0;
-        order: 9999;
-      }
-
-      .swiper-css-mode.swiper-centered > .swiper-wrapper > .swiper-slide {
-        scroll-snap-align: center center;
-        scroll-snap-stop: always;
-      }
-
-      .swiper-css-mode.swiper-centered.swiper-horizontal
-        > .swiper-wrapper
-        > .swiper-slide:first-child {
-        margin-inline-start: var(--swiper-centered-offset-before);
-      }
-
-      .swiper-css-mode.swiper-centered.swiper-horizontal
-        > .swiper-wrapper::before {
-        height: 100%;
-        min-height: 1px;
-        width: var(--swiper-centered-offset-after);
-      }
-
-      .swiper-css-mode.swiper-centered.swiper-vertical
-        > .swiper-wrapper
-        > .swiper-slide:first-child {
-        margin-block-start: var(--swiper-centered-offset-before);
-      }
-
-      .swiper-css-mode.swiper-centered.swiper-vertical
-        > .swiper-wrapper::before {
-        width: 100%;
-        min-width: 1px;
-        height: var(--swiper-centered-offset-after);
-      }
-
-      .swiper-3d .swiper-slide-shadow,
-      .swiper-3d .swiper-slide-shadow-bottom,
-      .swiper-3d .swiper-slide-shadow-left,
-      .swiper-3d .swiper-slide-shadow-right,
-      .swiper-3d .swiper-slide-shadow-top {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 10;
-      }
-
-      .swiper-3d .swiper-slide-shadow {
-        background: rgba(0, 0, 0, 0.15);
-      }
-
-      .swiper-3d .swiper-slide-shadow-left {
-        background-image: linear-gradient(
-          to left,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0)
-        );
-      }
-
-      .swiper-3d .swiper-slide-shadow-right {
-        background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0)
-        );
-      }
-
-      .swiper-3d .swiper-slide-shadow-top {
-        background-image: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0)
-        );
-      }
-
-      .swiper-3d .swiper-slide-shadow-bottom {
-        background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0)
-        );
-      }
-
-      .swiper-lazy-preloader {
-        width: 42px;
-        height: 42px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -21px;
-        margin-top: -21px;
-        z-index: 10;
-        transform-origin: 50%;
-        box-sizing: border-box;
-        border: 4px solid
-          var(--swiper-preloader-color, var(--swiper-theme-color));
-        border-radius: 50%;
-        border-top-color: transparent;
-      }
-
-      .swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader,
-      .swiper:not(.swiper-watch-progress) .swiper-lazy-preloader {
-        animation: swiper-preloader-spin 1s infinite linear;
-      }
-
-      .swiper-lazy-preloader-white {
-        --swiper-preloader-color: #fff;
-      }
-
-      .swiper-lazy-preloader-black {
-        --swiper-preloader-color: #000;
-      }
-
-      @keyframes swiper-preloader-spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      .swiper-virtual .swiper-slide {
-        -webkit-backface-visibility: hidden;
-        transform: translateZ(0);
-      }
-
-      .swiper-virtual.swiper-css-mode .swiper-wrapper::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        pointer-events: none;
-      }
-
-      .swiper-virtual.swiper-css-mode.swiper-horizontal .swiper-wrapper::after {
-        height: 1px;
-        width: var(--swiper-virtual-size);
-      }
-
-      .swiper-virtual.swiper-css-mode.swiper-vertical .swiper-wrapper::after {
-        width: 1px;
-        height: var(--swiper-virtual-size);
-      }
-
-      :root {
-        --swiper-navigation-size: 44px;
-      }
-
-      .swiper-button-next,
-      .swiper-button-prev {
-        position: absolute;
-        top: var(--swiper-navigation-top-offset, 50%);
-        width: calc(var(--swiper-navigation-size) / 44 * 27);
-        height: var(--swiper-navigation-size);
-        margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
-        z-index: 10;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--swiper-navigation-color, var(--swiper-theme-color));
-      }
-
-      .swiper-button-next.swiper-button-disabled,
-      .swiper-button-prev.swiper-button-disabled {
-        opacity: 0.35;
-        cursor: auto;
-        pointer-events: none;
-      }
-
-      .swiper-button-next.swiper-button-hidden,
-      .swiper-button-prev.swiper-button-hidden {
-        opacity: 0;
-        cursor: auto;
-        pointer-events: none;
-      }
-
-      .swiper-navigation-disabled .swiper-button-next,
-      .swiper-navigation-disabled .swiper-button-prev {
-        display: none !important;
-      }
-
-      .swiper-button-next svg,
-      .swiper-button-prev svg {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        transform-origin: center;
-      }
-
-      .swiper-rtl .swiper-button-next svg,
-      .swiper-rtl .swiper-button-prev svg {
-        transform: rotate(180deg);
-      }
-
-      .swiper-button-prev,
-      .swiper-rtl .swiper-button-next {
-        left: var(--swiper-navigation-sides-offset, 10px);
-        right: auto;
-      }
-
-      .swiper-button-next,
-      .swiper-rtl .swiper-button-prev {
-        right: var(--swiper-navigation-sides-offset, 10px);
-        left: auto;
-      }
-
-      .swiper-button-lock {
-        display: none;
-      }
-
-      .swiper-button-next:after,
-      .swiper-button-prev:after {
-        font-family: swiper-icons;
-        font-size: var(--swiper-navigation-size);
-        text-transform: none !important;
-        letter-spacing: 0;
-        font-variant: initial;
-        line-height: 1;
-      }
-
-      .swiper-button-prev:after,
-      .swiper-rtl .swiper-button-next:after {
-        content: "prev";
-      }
-
-      .swiper-button-next,
-      .swiper-rtl .swiper-button-prev {
-        right: var(--swiper-navigation-sides-offset, 10px);
-        left: auto;
-      }
-
-      .swiper-button-next:after,
-      .swiper-rtl .swiper-button-prev:after {
-        content: "next";
-      }
-
-      .swiper-pagination {
-        position: absolute;
-        text-align: center;
-        transition: 0.3s opacity;
-        transform: translate3d(0, 0, 0);
-        z-index: 10;
-      }
-
-      .swiper-pagination.swiper-pagination-hidden {
-        opacity: 0;
-      }
-
-      .swiper-pagination-disabled > .swiper-pagination,
-      .swiper-pagination.swiper-pagination-disabled {
-        display: none !important;
-      }
-
-      .swiper-horizontal > .swiper-pagination-bullets,
-      .swiper-pagination-bullets.swiper-pagination-horizontal,
-      .swiper-pagination-custom,
-      .swiper-pagination-fraction {
-        bottom: var(--swiper-pagination-bottom, 8px);
-        top: var(--swiper-pagination-top, auto);
-        left: 0;
-        width: 100%;
-      }
-
-      .swiper-pagination-bullets-dynamic {
-        overflow: hidden;
-        font-size: 0;
-      }
-
-      .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
-        transform: scale(0.33);
-        position: relative;
-      }
-
-      .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
-        transform: scale(1);
-      }
-
-      .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
-        transform: scale(1);
-      }
-
-      .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
-        transform: scale(0.66);
-      }
-
-      .swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet-active-prev-prev {
-        transform: scale(0.33);
-      }
-
-      .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
-        transform: scale(0.66);
-      }
-
-      .swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet-active-next-next {
-        transform: scale(0.33);
-      }
-
-      .swiper-pagination-bullet {
-        width: var(
-          --swiper-pagination-bullet-width,
-          var(--swiper-pagination-bullet-size, 8px)
-        );
-        height: var(
-          --swiper-pagination-bullet-height,
-          var(--swiper-pagination-bullet-size, 8px)
-        );
-        display: inline-block;
-        border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
-        background: var(--swiper-pagination-bullet-inactive-color, #000);
-        opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
-      }
-
-      button.swiper-pagination-bullet {
-        border: none;
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        -webkit-appearance: none;
-        appearance: none;
-      }
-
-      .swiper-pagination-clickable .swiper-pagination-bullet {
-        cursor: pointer;
-      }
-
-      .swiper-pagination-bullet:only-child {
-        display: none !important;
-      }
-
-      .swiper-pagination-bullet-active {
-        opacity: var(--swiper-pagination-bullet-opacity, 1);
-        background: var(--swiper-pagination-color, var(--swiper-theme-color));
-      }
-
-      .swiper-pagination-vertical.swiper-pagination-bullets,
-      .swiper-vertical > .swiper-pagination-bullets {
-        right: var(--swiper-pagination-right, 8px);
-        left: var(--swiper-pagination-left, auto);
-        top: 50%;
-        transform: translate3d(0px, -50%, 0);
-      }
-
-      .swiper-pagination-vertical.swiper-pagination-bullets
-        .swiper-pagination-bullet,
-      .swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
-        margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
-        display: block;
-      }
-
-      .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-      .swiper-vertical
-        > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-        top: 50%;
-        transform: translateY(-50%);
-        width: 8px;
-      }
-
-      .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet,
-      .swiper-vertical
-        > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet {
-        display: inline-block;
-        transition: 0.2s transform, 0.2s top;
-      }
-
-      .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-      .swiper-pagination-horizontal.swiper-pagination-bullets
-        .swiper-pagination-bullet {
-        margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
-      }
-
-      .swiper-horizontal
-        > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-      .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: nowrap;
-      }
-
-      .swiper-horizontal
-        > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet,
-      .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet {
-        transition: 0.2s transform, 0.2s left;
-      }
-
-      .swiper-horizontal.swiper-rtl
-        > .swiper-pagination-bullets-dynamic
-        .swiper-pagination-bullet {
-        transition: 0.2s transform, 0.2s right;
-      }
-
-      .swiper-pagination-fraction {
-        color: var(--swiper-pagination-fraction-color, inherit);
-      }
-
-      .swiper-pagination-progressbar {
-        background: var(
-          --swiper-pagination-progressbar-bg-color,
-          rgba(0, 0, 0, 0.25)
-        );
-        position: absolute;
-      }
-
-      .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-        background: var(--swiper-pagination-color, var(--swiper-theme-color));
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        transform: scale(0);
-        transform-origin: left top;
-      }
-
-      .swiper-rtl
-        .swiper-pagination-progressbar
-        .swiper-pagination-progressbar-fill {
-        transform-origin: right top;
-      }
-
-      .swiper-horizontal > .swiper-pagination-progressbar,
-      .swiper-pagination-progressbar.swiper-pagination-horizontal,
-      .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
-      .swiper-vertical
-        > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
-        width: 100%;
-        height: var(--swiper-pagination-progressbar-size, 4px);
-        left: 0;
-        top: 0;
-      }
-
-      .swiper-horizontal
-        > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
-      .swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite,
-      .swiper-pagination-progressbar.swiper-pagination-vertical,
-      .swiper-vertical > .swiper-pagination-progressbar {
-        width: var(--swiper-pagination-progressbar-size, 4px);
-        height: 100%;
-        left: 0;
-        top: 0;
-      }
-
-      .swiper-pagination-lock {
-        display: none;
-      }
-
-      .swiper-scrollbar {
-        border-radius: var(--swiper-scrollbar-border-radius, 10px);
-        position: relative;
-        touch-action: none;
-        background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.1));
-      }
-
-      .swiper-scrollbar-disabled > .swiper-scrollbar,
-      .swiper-scrollbar.swiper-scrollbar-disabled {
-        display: none !important;
-      }
-
-      .swiper-horizontal > .swiper-scrollbar,
-      .swiper-scrollbar.swiper-scrollbar-horizontal {
-        position: absolute;
-        left: var(--swiper-scrollbar-sides-offset, 1%);
-        bottom: var(--swiper-scrollbar-bottom, 4px);
-        top: var(--swiper-scrollbar-top, auto);
-        z-index: 50;
-        height: var(--swiper-scrollbar-size, 4px);
-        width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
-      }
-
-      .swiper-scrollbar.swiper-scrollbar-vertical,
-      .swiper-vertical > .swiper-scrollbar {
-        position: absolute;
-        left: var(--swiper-scrollbar-left, auto);
-        right: var(--swiper-scrollbar-right, 4px);
-        top: var(--swiper-scrollbar-sides-offset, 1%);
-        z-index: 50;
-        width: var(--swiper-scrollbar-size, 4px);
-        height: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
-      }
-
-      .swiper-scrollbar-drag {
-        height: 100%;
-        width: 100%;
-        position: relative;
-        background: var(--swiper-scrollbar-drag-bg-color, rgba(0, 0, 0, 0.5));
-        border-radius: var(--swiper-scrollbar-border-radius, 10px);
-        left: 0;
-        top: 0;
-      }
-
-      .swiper-scrollbar-cursor-drag {
-        cursor: move;
-      }
-
-      .swiper-scrollbar-lock {
-        display: none;
-      }
-
-      .swiper-zoom-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-      }
-
-      .swiper-zoom-container > canvas,
-      .swiper-zoom-container > img,
-      .swiper-zoom-container > svg {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-
-      .swiper-slide-zoomed {
-        cursor: move;
-        touch-action: none;
-      }
-
-      .swiper .swiper-notification {
-        position: absolute;
-        left: 0;
-        top: 0;
-        pointer-events: none;
-        opacity: 0;
-        z-index: -1000;
-      }
-
-      .swiper-free-mode > .swiper-wrapper {
-        transition-timing-function: ease-out;
-        margin: 0 auto;
-      }
-
-      .swiper-grid > .swiper-wrapper {
-        flex-wrap: wrap;
-      }
-
-      .swiper-grid-column > .swiper-wrapper {
-        flex-wrap: wrap;
-        flex-direction: column;
-      }
-
-      .swiper-fade.swiper-free-mode .swiper-slide {
-        transition-timing-function: ease-out;
-      }
-
-      .swiper-fade .swiper-slide {
-        pointer-events: none;
-        transition-property: opacity;
-      }
-
-      .swiper-fade .swiper-slide .swiper-slide {
-        pointer-events: none;
-      }
-
-      .swiper-fade .swiper-slide-active {
-        pointer-events: auto;
-      }
-
-      .swiper-fade .swiper-slide-active .swiper-slide-active {
-        pointer-events: auto;
-      }
-
-      .swiper.swiper-cube {
-        overflow: visible;
-      }
-
-      .swiper-cube .swiper-slide {
-        pointer-events: none;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        z-index: 1;
-        visibility: hidden;
-        transform-origin: 0 0;
-        width: 100%;
-        height: 100%;
-      }
-
-      .swiper-cube .swiper-slide .swiper-slide {
-        pointer-events: none;
-      }
-
-      .swiper-cube.swiper-rtl .swiper-slide {
-        transform-origin: 100% 0;
-      }
-
-      .swiper-cube .swiper-slide-active,
-      .swiper-cube .swiper-slide-active .swiper-slide-active {
-        pointer-events: auto;
-      }
-
-      .swiper-cube .swiper-slide-active,
-      .swiper-cube .swiper-slide-next,
-      .swiper-cube .swiper-slide-prev {
-        pointer-events: auto;
-        visibility: visible;
-      }
-
-      .swiper-cube .swiper-cube-shadow {
-        position: absolute;
-        left: 0;
-        bottom: 0px;
-        width: 100%;
-        height: 100%;
-        opacity: 0.6;
-        z-index: 0;
-      }
-
-      .swiper-cube .swiper-cube-shadow:before {
-        content: "";
-        background: #000;
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        filter: blur(50px);
-      }
-
-      .swiper-cube .swiper-slide-next + .swiper-slide {
-        pointer-events: auto;
-        visibility: visible;
-      }
-
-      .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-bottom,
-      .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-left,
-      .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-right,
-      .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-top {
-        z-index: 0;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-
-      .swiper.swiper-flip {
-        overflow: visible;
-      }
-
-      .swiper-flip .swiper-slide {
-        pointer-events: none;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        z-index: 1;
-      }
-
-      .swiper-flip .swiper-slide .swiper-slide {
-        pointer-events: none;
-      }
-
-      .swiper-flip .swiper-slide-active,
-      .swiper-flip .swiper-slide-active .swiper-slide-active {
-        pointer-events: auto;
-      }
-
-      .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-bottom,
-      .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-left,
-      .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-right,
-      .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-top {
-        z-index: 0;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-
-      .swiper-creative .swiper-slide {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        overflow: hidden;
-        transition-property: transform, opacity, height;
-      }
-
-      .swiper.swiper-cards {
-        overflow: visible;
-      }
-
-      .swiper-cards .swiper-slide {
-        transform-origin: center bottom;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        overflow: hidden;
-      }
-    </style>
-
-    <style>
-      @font-face {
-        font-family: "HurmeGeometricSans3-Bold";
-        src: local("HurmeGeometricSans3-Bold"),
-          url("./fonts/HurmeGeometricSans3-Bold.woff") format("woff");
-      }
-
-      @font-face {
-        font-family: "HurmeGeometricSans3-Regular";
-        src: local("HurmeGeometricSans3-Regular"),
-          url("./fonts/HurmeGeometricSans3-Regular.woff") format("woff");
-      }
-
-      @font-face {
-        font-family: "HurmeGeometricSans3-Black";
-        src: local("HurmeGeometricSans3-Black"),
-          url("./fonts/HurmeGeometricSans3-Black.woff") format("woff");
-      }
-
-      @font-face {
-        font-family: "HurmeGeometricSans3-Light";
-        src: local("HurmeGeometricSans3-Light"),
-          url("./fonts/HurmeGeometricSans3-Light.woff2") format("woff2");
-      }
-
-      #es-rc #es-rc-content {
-        --white: #fff;
-        --light-blue: #7ebff4;
-        --blue: #005bab;
-        --yellow: #f6c641;
-        --orange: #fba40e;
-        --dark-blue: #002349;
-        --pink: #e3077d;
-        --green: #1a6913;
-
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0;
-        font-family: "HurmeGeometricSans3-Regular", sans-serif;
-        font-weight: 300;
-        font-size: 10px;
-        line-height: 1.2;
-        overflow: hidden;
-        background-color: #ffffff;
-        color: var(--white);
-      }
-
-      #es-rc #es-rc-content * {
-        box-sizing: border-box;
-      }
-
-      #es-rc #es-rc-content h2,
-      #es-rc #es-rc-content h3,
-      #es-rc #es-rc-content h4,
-      #es-rc #es-rc-content h5,
-      #es-rc #es-rc-content h6 {
-        margin: 0;
-      }
-
-      #es-rc #es-rc-content p {
-        margin: 0;
-      }
-
-      #es-rc #es-rc-content img {
-        max-width: 100%;
-        display: block;
-        margin: 0 auto;
-      }
-
-      #es-rc #es-rc-content .es-kv__mobile,
-      #es-rc #es-rc-content .es-kv {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        align-items: flex-start;
-        padding: 9% 4%;
-
-        aspect-ratio: 16 / 9;
-        background-image: url(./img/kv-background.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc #es-rc-content .es-kv__mobile {
-        display: none;
-      }
-
-      #es-rc #es-rc-content .es-kv__logo-img {
-        width: 42vw;
-        max-width: 531px;
-      }
-
-      #es-rc #es-rc-content .es-kv__title {
-        font-size: 7vw;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-products {
-        overflow-x: auto;
-
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-
-        gap: 2.625em;
-        padding: 1em 1.313em;
-        background-color: var(--blue);
-
-        width: 100%;
-        box-sizing: border-box;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-      }
-
-      #es-rc #es-rc-content .es-products__item {
-        width: 125px;
-
-        text-decoration: none;
-        color: var(--white);
-        cursor: pointer;
-      }
-
-      #es-rc #es-rc-content .es-products__item-title {
-        margin-top: 1.375em;
-        font-size: 1.125em;
-        text-align: center;
-      }
-
-      #es-rc #es-rc-content .es-products__item-img {
-        max-width: unset;
-        width: 100px;
-        height: 100px;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators {
-        background-color: var(--blue);
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__enso {
-        padding: 0.888em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5em;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__enso-saturator {
-        flex: 1;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__enso-content {
-        flex: 1;
-
-        display: flex;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__enso-content-title {
-        text-align: center;
-        font-size: 3.75em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__menu {
-        display: flex;
-        overflow-x: auto;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__menu > a {
-        min-width: 6.944em;
-
-        flex: 1;
-        padding: 1.438em 0;
-        background-color: var(--light-blue);
-        border-right: 1px solid var(--dark-blue);
-        transition: background-color 0.3s;
-
-        text-decoration: none;
-        font-size: 1.125em;
-        text-align: center;
-        color: var(--dark-blue);
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__menu > a:last-child {
-        border-right: none;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__menu > a:hover {
-        background-color: #1e90ff;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__desc {
-        padding: 2.5em 1.875em;
-        background-color: var(--blue);
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators__desc-text {
-        font-size: 1.375em;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video__carousel {
-        flex: 0.6;
-
-        background-color: red;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video__video {
-        flex: 0.4;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video {
-        display: flex;
-        flex-direction: column;
-        padding: 0 1.875em 2.5em;
-        background-color: var(--blue);
-      }
-
-      #es-rc #es-rc-content .es-map {
-        height: 400px;
-        background-color: red;
-
-        display: none;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-saturator-benefits {
-        overflow-x: auto;
-
-        display: none;
-        padding: 2.063em;
-        flex-direction: column;
-        background-color: var(--blue);
-      }
-
-      #es-rc #es-rc-content .es-map.show,
-      #es-rc #es-rc-content .es-saturator-benefits.show {
-        display: flex;
-      }
-
-      #es-rc #es-rc-content .es-map__arrow,
-      #es-rc #es-rc-content .es-saturator-benefits__arrow {
-        font-size: 2.25em;
-        cursor: pointer;
-        padding: 0.19em 0;
-        background-color: var(--light-blue);
-
-        color: #000000;
-        text-align: center;
-
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-      }
-
-      #es-rc #es-rc-content .es-map__arrow {
-        color: var(--white);
-        background-color: #f498c9;
-      }
-
-      #es-rc #es-rc-content .es-saturator-benefits__row {
-        display: grid;
-        grid-template-columns: repeat(6, 187px);
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row:first-child
-        > .es-saturator-benefits__row-cell {
-        padding: 0;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row:nth-child(2)
-        > .es-saturator-benefits__row-cell {
-        border-top: 2px solid var(--white);
-      }
-
-      #es-rc #es-rc-content .es-saturator-benefits__row-cell {
-        flex: 1;
-        padding: 2.125em 1.313em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #es-rc #es-rc-content .es-saturator-benefits__row-cell-bottle-img {
-        width: 85px;
-        height: 87px;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row:first-child
-        > .es-saturator-benefits__row-cell {
-        flex-direction: column;
-        gap: 1.25em;
-        justify-content: flex-end;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row:first-child
-        .es-saturator-benefits__row-cell-img {
-        display: block;
-        margin: 0 auto; /* center horizontally */
-        width: auto; /* keeps original width */
-        height: auto; /* keeps original height */
-        max-width: none; /* prevent scaling down */
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row:first-child
-        .es-saturator-benefits__row-cell-title {
-        font-size: 1.25em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        text-align: center;
-        margin-bottom: 2.125em;
-      }
-
-      #es-rc #es-rc-content .es-saturator-benefits__row-cell:first-child {
-        justify-content: flex-start;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row
-        .es-saturator-benefits__row-cell-colors {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.313em;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row
-        .es-saturator-benefits__row-cell-colors-img {
-        margin: unset;
-      }
-
-      #es-rc #es-rc-content .es-saturator-benefits__row-cell-text {
-        font-size: 1.125em;
-        text-align: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturator-benefits__row:not(:first-child)
-        > .es-saturator-benefits__row-cell:not(:last-child) {
-        border-right: 2px solid var(--white);
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange {
-        font-size: 3px;
-        position: relative;
-        padding: 22.25%;
-        background-image: url("./img/wymien-mobile.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        background-color: var(--pink);
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange-mobile {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        font-size: 10px;
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange-mobile__top {
-        flex: 1;
-        position: relative;
-        aspect-ratio: 16 / 9;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: top;
-        background-image: url("./img/exchange-bottle.png");
-        background-color: var(--pink);
-      }
-
-      #es-rc #es-rc-content div.es-bottle-exchange-mobile__top-price {
-        width: 75px;
-        height: 75px;
-        margin-left: 10px;
-        margin-top: 10px;
-
-        position: absolute;
-        right: unset;
-        bottom: unset;
-        top: unset;
-        left: unset;
-        transform: unset;
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom {
-        flex: 1;
-        background-color: var(--pink);
-
-        display: flex;
-        gap: 3em;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange__top-title {
-        width: fit-content;
-        line-height: 1em;
-        font-size: 3em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        text-align: center;
-        position: absolute;
-        top: 1%;
-        left: 50%;
-        transform: translate(-100%, 0%);
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom-title {
-        line-height: 1em;
-        font-size: 3em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        text-align: center;
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange__bottom-title {
-        width: fit-content;
-
-        font-size: 2em;
-        font-family: "HurmeGeometricSans3-Black", sans-serif;
-        text-align: center;
-
-        position: absolute;
-        bottom: -3%;
-        left: 50%;
-        transform: translate(0, -20%);
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price,
-      #es-rc #es-rc-content .es-bottle-exchange__price {
-        width: 125px;
-        height: 125px;
-        text-align: center;
-        background-color: #67043a;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-
-        position: absolute;
-        bottom: -8%;
-        left: 50%;
-        transform: translate(-210%, -165%);
-      }
-
-      #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(1),
-      #es-rc
-        #es-rc-content
-        .es-bottle-exchange-mobile__top-price
-        > p:nth-child(1),
-      #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(3),
-      #es-rc
-        #es-rc-content
-        .es-bottle-exchange-mobile__top-price
-        > p:nth-child(3) {
-        font-size: 1.375em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottle-exchange-mobile__top-price
-        > p:nth-child(2),
-      #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(2) {
-        font-size: 1.25em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-bottles-gallery {
-        display: flex;
-        flex-direction: column-reverse;
-        background-color: var(--green);
-      }
-
-      #es-rc #es-rc-content .es-bottles-gallery__left {
-        flex: 1;
-
-        padding: 9.925% 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-bottles-gallery__left-title {
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        font-size: 3.313em;
-        text-align: center;
-      }
-
-      #es-rc #es-rc-content .es-bottles-gallery__right {
-        aspect-ratio: 16 / 9;
-        flex: 1;
-        display: flex;
-        gap: 0.5em;
-      }
-
-      #es-rc #es-rc-content .es-bottles-gallery__right-col {
-        flex: 1;
-
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(1)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
-        flex: 1;
-
-        background-image: url(./img/piramida.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(1)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
-        flex: 1;
-
-        background-image: url(./img/berries.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(2)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
-        flex: 0.6;
-
-        background-image: url(./img/white-saturator.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(2)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
-        flex: 0.4;
-
-        background-image: url(./img/orange.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(3)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
-        flex: 0.2;
-
-        background-image: url(./img/lemon.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(3)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
-        flex: 0.25;
-
-        background-image: url(./img/grapefruit.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(3)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(3) {
-        flex: 0.55;
-
-        background-image: url(./img/glass-with-orange.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(4)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
-        flex: 0.35;
-
-        background-image: url(./img/ice.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-bottles-gallery__right-col:nth-child(4)
-        .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
-        flex: 0.65;
-
-        background-image: url(./img/black-saturator.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters {
-        display: flex;
-        flex-direction: column;
-        gap: 5em;
-
-        padding: 2.688em 1.813em;
-        background-color: #9cb644;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__litres {
-        display: flex;
-        flex-direction: column;
-        gap: 5em;
-        justify-content: space-around;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__litres-col > p {
-        text-align: center;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(1) {
-        font-size: 1.563em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(2) {
-        margin-top: 0.291em;
-        margin-bottom: 0.527em;
-        font-size: 3.438em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(3) {
-        font-size: 1.25em;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__references > p > sup,
-      #es-rc #es-rc-content .es-bottle-counters__litres-col > p > sup {
-        font-size: 0.6em;
-      }
-
-      #es-rc #es-rc-content .es-bottle-counters__references-text {
-        text-align: left;
-      }
-
-      #es-rc #es-rc-content .es-faq {
-        padding-top: 15px;
-        padding-bottom: 10px;
-        background-color: #13294b;
-        color: #ffffff;
-        position: relative;
-        z-index: 1;
-      }
-
-      #es-rc #es-rc-content .es-faq__title {
-        padding-left: 0.833em;
-        padding-bottom: 0.5em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        font-size: 1.875em;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ffffff;
-      }
-
-      #es-rc #es-rc-content .es-faq__item-check {
-        width: 30px;
-      }
-
-      #es-rc #es-rc-content .es-faq__items {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      #es-rc #es-rc-content .es-faq__item-visible {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion {
-        margin: 0 auto;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element {
-        margin: 0 auto;
-        margin-bottom: 10px;
-        padding-bottom: 20px;
-        border: none;
-        border-bottom: 1px solid #fff;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element:last-of-type {
-        border-bottom: none;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element-content {
-        font-size: 1.25em;
-        line-height: 1.4;
-        color: #ffffff;
-        overflow: hidden;
-        margin-top: -30px;
-        padding-left: 30px;
-        padding-right: 20px;
-        padding-bottom: 10px;
-        max-height: 0;
-        transition: max-height 0.5s ease-out;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element-content--bold {
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element-content--link {
-        color: var(--white);
-        text-decoration: none;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-      }
-
-      .es-accordion__element-content--list {
-        padding-left: 2.75em;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-faq
-        .es-accordion__element-content--list-heading {
-        display: inline-block;
-        margin-bottom: 0.937em;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element-content--link:hover {
-        color: #0099ff;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-faq
-        .es-accordion__element-content--link:active {
-        color: #005fa3;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element-content--link:focus {
-        color: #003f6d;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-faq
-        .es-accordion__element-content--link:visited {
-        color: #551a8b;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
-        padding-left: 25px;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion__title {
-        padding: 4px 15px 17px 60px;
-        font-size: 1.563em;
-        color: #fff;
-        transition: all 200ms ease-out;
-        border-radius: 5px;
-        font-family: "HurmeGeometricSans3-Regular", sans-serif;
-        font-weight: 700;
-        cursor: pointer;
-        z-index: 1;
-        position: relative;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion .es-accordion__arrow {
-        width: 17px;
-        position: absolute;
-        left: 28px;
-        top: 10px;
-        margin: auto 0;
-        transition: all 0.3s ease-out;
-      }
-
-      #es-rc #es-rc-content .es-faq .es-accordion .active .es-accordion__arrow {
-        transform: rotate(180deg);
-      }
-
-      #es-rc #es-rc-content .es-slider .swiper-button-prev:after,
-      #es-rc #es-rc-content .es-slider .swiper-rtl .swiper-button-next:after,
-      #es-rc #es-rc-content .es-slider .swiper-button-next:after,
-      #es-rc #es-rc-content .es-slider .swiper-rtl .swiper-button-next:after {
-        content: "";
-      }
-
-      #es-rc #es-rc-content .es-slider .swiper-button-next,
-      #es-rc #es-rc-content .es-slider .swiper-button-prev {
-        width: unset;
-        height: unset;
-        position: static;
-        justify-content: unset;
-        display: unset;
-      }
-
-      #es-rc #es-rc-content .es-slider__buttons {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        position: absolute;
-        top: 50%;
-        padding: 32px;
-      }
-
-      #es-rc #es-rc-content .es-slider__buttons--prev__img,
-      #es-rc #es-rc-content .es-slider__buttons--next__img {
-        display: block;
-        width: 48px;
-        height: 48px;
-        margin: 0;
-      }
-
-      #es-rc #es-rc-content .es-slider__buttons--prev__img {
-        transform: rotate(180deg);
-      }
-
-      #es-rc #es-rc-content .es-slider__buttons--next {
-        margin-left: auto;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide__right {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide__title {
-        font-family: "HurmeGeometricSans3-Black", sans-serif;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide__text {
-        padding-right: 32px;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide--1 {
-        background-color: #002349;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide--2 {
-        background-color: #eeeae5;
-        color: #13294b;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide--2 ::-moz-selection {
-        background-color: #13294b;
-        color: #eeeae5;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide--2 ::selection {
-        background-color: #13294b;
-        color: #eeeae5;
-      }
-
-      #es-rc #es-rc-content .es-slide__img {
-        width: 100%;
-      }
-
-      #es-rc #es-rc-content .es-slider__slide__left {
-        width: 100%;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-slider__slide__right
-        > .es-slide__img:nth-child(1),
-      #es-rc
-        #es-rc-content
-        .es-slider__slide__left
-        > .es-slide__img:nth-child(1) {
-        display: none;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--orange__enso-content-title {
-        padding-inline: 1em;
-        text-align: center;
-        font-size: 3.75em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        color: #13294b;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu {
-        display: flex;
-        overflow-x: auto;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu > a {
-        min-width: 125px;
-        flex: 1;
-        padding: 1.438em 0;
-        background-color: var(--orange);
-        border-right: 1px solid var(--white);
-        transition: background-color 0.3s;
-
-        text-decoration: none;
-        font-size: 1.125em;
-        text-align: center;
-        color: var(--white);
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--orange__menu
-        > a:last-child {
-        border-right: none;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu > a:hover {
-        background-color: #b16f00;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__desc {
-        padding: 2.5em 1.875em;
-        background-color: #fde993;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__desc-text {
-        font-size: 1.375em;
-        color: #13294b;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--orange {
-        display: flex;
-        flex-direction: column;
-        padding: 0 1.875em 2.5em;
-        background-color: #fde993;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-saturators-carousel-and-video--orange__carousel {
-        flex: 0.6;
-
-        background-color: red;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--orange__video {
-        flex: 0.4;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange {
-        background-color: var(--yellow);
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso {
-        padding-top: 2.25em;
-
-        display: flex;
-        gap: 2.5em;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-saturator {
-        flex: 0.3;
-        padding-inline: 4.063em;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--orange__enso-saturator-img {
-        margin: unset;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-content {
-        flex: 0.7;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--green__enso-content-title {
-        text-align: center;
-        font-size: 3.75em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        color: #13294b;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__menu {
-        overflow-x: auto;
-        display: flex;
-        background-color: var(--green);
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__menu > a {
-        min-width: 125px;
-        flex: 1;
-        padding: 1.438em 0;
-        border-right: 1px solid var(--white);
-        transition: background-color 0.3s;
-
-        text-decoration: none;
-        font-size: 1.125em;
-        text-align: center;
-        color: var(--white);
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--green__menu
-        > a:last-child {
-        border-right: none;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__menu > a:hover {
-        background-color: #09a301;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__desc {
-        padding: 2.5em 1.875em;
-        background-color: #d4dd7c;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__desc-text {
-        font-size: 1.375em;
-        color: #13294b;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--green {
-        display: flex;
-        flex-direction: column;
-        padding: 0 1.875em 2.5em;
-        background-color: #d4dd7c;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--green__carousel {
-        flex: 0.6;
-
-        background-color: red;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--green__video {
-        flex: 0.4;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green {
-        background-color: #9cb644;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__enso {
-        padding-top: 2.25em;
-        padding-inline: 4.063em;
-        display: flex;
-        gap: 2.5em;
-        flex-direction: column-reverse;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-saturator {
-        flex: 0.5;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--green__enso-saturator-img {
-        margin: unset;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-content {
-        flex: 0.5;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--pink__enso-content-title {
-        padding-top: 1em;
-        padding-inline: 1em;
-        text-align: center;
-        font-size: 3.75em;
-        font-family: "HurmeGeometricSans3-Bold", sans-serif;
-        color: var(--white);
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu {
-        display: flex;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu > a {
-        flex: 1;
-        padding: 1.438em 0;
-        background-color: var(--pink);
-        border-right: 1px solid var(--white);
-        transition: background-color 0.3s;
-
-        text-decoration: none;
-        font-size: 1.125em;
-        text-align: center;
-        color: var(--white);
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--pink__menu
-        > a:last-child {
-        border-right: none;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu > a:hover {
-        background-color: #09a301;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__desc {
-        padding: 2.5em 1.875em;
-        background-color: #67043a;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__desc-text {
-        font-size: 1.375em;
-        color: var(--white);
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--pink {
-        display: flex;
-        flex-direction: column;
-        padding: 0 1.875em 2.5em;
-        background-color: #67043a;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--pink__carousel {
-        flex: 0.6;
-
-        background-color: red;
-      }
-
-      #es-rc #es-rc-content .es-saturators-carousel-and-video--pink__video {
-        flex: 0.4;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink {
-        background-color: #e3087e;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
-        padding-top: 0.5em;
-        display: flex;
-        gap: 2.5em;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-saturator {
-        width: 100%;
-        flex: 0.3;
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      #es-rc
-        #es-rc-content
-        .es-get-to-know-saturators--pink__enso-saturator-img {
-        margin: unset;
-      }
-
-      #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content {
-        flex: 0.7;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-      }
-
-      @media screen and (min-width: 427px) {
-        #es-rc #es-rc-content .es-bottle-exchange {
-          font-size: 5px;
-        }
-      }
-
-      @media screen and (min-width: 650px) {
-        #es-rc #es-rc-content .es-faq .es-accordion {
-          max-width: none;
-        }
-
-        #es-rc #es-rc-content .es-faq .es-accordion__title {
-          font-size: 20px;
-        }
-
-        #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
-          font-size: 20px;
-        }
-        #es-rc #es-rc-content .es-bottle-exchange {
-          background-image: url("./img/wymien-desktop.png");
-        }
-      }
-
-      @container es-rc-content (min-width: 660px) {
-        #es-rc #es-rc-content .es-slider__slide {
-          gap: 48px;
-          font-size: 24px;
-        }
-
-        #es-rc #es-rc-content .es-slider__slide__right {
-          gap: 24px;
-        }
-      }
-
-      @container es-rc-content (min-width: 756px) {
-        #es-rc #es-rc-content .es-slider__slide {
-          flex-direction: row;
-        }
-
-        #es-rc #es-rc-content .es-slider__slide__right {
-          text-align: left;
-          flex: 1 1 0;
-        }
-
-        #es-rc #es-rc-content .es-slider__slide__left {
-          flex: 1 1 0;
-        }
-
-        #es-rc #es-rc-content .es-slider__slide__text {
-          padding-right: 48px;
-        }
-      }
-
-      @media screen and (min-width: 576px) {
-        #es-rc #es-rc-content .es-bottle-exchange {
-          font-size: 7px;
-        }
-
-        #es-rc #es-rc-content {
-          font-size: 16px;
-        }
-
-        #es-rc #es-rc-content .es-bottle-counters {
-          gap: 1.813em;
-        }
-
-        #es-rc #es-rc-content .es-saturators-carousel-and-video--pink,
-        #es-rc #es-rc-content .es-saturators-carousel-and-video--green,
-        #es-rc #es-rc-content .es-saturators-carousel-and-video--orange,
-        #es-rc #es-rc-content .es-saturators-carousel-and-video {
-          flex-direction: row;
-        }
-
-        #es-rc
-          #es-rc-content
-          .es-slider__slide__right
-          > .es-slide__img:nth-child(1),
-        #es-rc
-          #es-rc-content
-          .es-slider__slide__left
-          > .es-slide__img:nth-child(1) {
-          display: block;
-        }
-
-        #es-rc
-          #es-rc-content
-          .es-slider__slide__right
-          > .es-slide__img:nth-child(2),
-        #es-rc
-          #es-rc-content
-          .es-slider__slide__left
-          > .es-slide__img:nth-child(2) {
-          display: none;
-        }
-      }
-
-      @media screen and (min-width: 875px) {
-        #es-rc #es-rc-content .es-bottle-exchange {
-          font-size: 11px;
-        }
-
-        #es-rc #es-rc-content .es-bottle-counters__litres {
-          flex-direction: row;
-          gap: 1.813em;
-        }
-      }
-
-      @media screen and (min-width: 1034px) {
-        #es-rc #es-rc-content .es-products--fixed.es-products {
-          border-left: 8px solid var(--white);
-          border-right: 8px solid var(--white);
-        }
-      }
-
-      @media screen and (min-width: 1232px) {
-        #es-rc #es-rc-content .es-bottle-exchange {
-          font-size: 16px;
-        }
-
-        #es-rc #es-rc-content .es-products--fixed.es-products {
-          border: 0;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        #es-rc #es-rc-content .es-bottle-exchange {
-          display: block;
-        }
-
-        #es-rc #es-rc-content .es-bottle-exchange-mobile {
-          display: none;
-        }
-
-        #es-rc #es-rc-content .es-kv__title {
-          font-size: 5.938em;
-        }
-
-        #es-rc #es-rc-content .es-bottles-gallery {
-          flex-direction: row;
-        }
-
-        #es-rc #es-rc-content .es-get-to-know-saturators__enso,
-        #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso,
-        #es-rc #es-rc-content .es-get-to-know-saturators--green__enso,
-        #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso {
-          gap: unset;
-          flex-direction: row;
-          align-items: unset;
-        }
-
-        #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
-          padding-right: unset;
-        }
-
-        #es-rc
-          #es-rc-content
-          .es-get-to-know-saturators--pink__enso-content-title {
-          text-align: left;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="es-rc">
-      <div id="es-rc-content">
-        <div class="es-kv">
-          <div class="es-kv__content">
-            <h3 class="es-kv__title">poznaj świat</h3>
+  :root {
+    --swiper-theme-color: #007aff;
+  }
+
+  :host {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+  }
+
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+  }
+
+  .swiper-vertical > .swiper-wrapper {
+    flex-direction: column;
+  }
+
+  .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    transition-timing-function: var(
+      --swiper-wrapper-transition-timing-function,
+      initial
+    );
+    box-sizing: content-box;
+  }
+
+  .swiper-android .swiper-slide,
+  .swiper-ios .swiper-slide,
+  .swiper-wrapper {
+    transform: translate3d(0px, 0, 0);
+  }
+
+  .swiper-horizontal {
+    touch-action: pan-y;
+  }
+
+  .swiper-vertical {
+    touch-action: pan-x;
+  }
+
+  .swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    display: block;
+  }
+
+  .swiper-slide-invisible-blank {
+    visibility: hidden;
+  }
+
+  .swiper-autoheight,
+  .swiper-autoheight .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-autoheight .swiper-wrapper {
+    align-items: flex-start;
+    transition-property: transform, height;
+  }
+
+  .swiper-backface-hidden .swiper-slide {
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .swiper-3d.swiper-css-mode .swiper-wrapper {
+    perspective: 1200px;
+  }
+
+  .swiper-3d .swiper-wrapper {
+    transform-style: preserve-3d;
+  }
+
+  .swiper-3d {
+    perspective: 1200px;
+  }
+
+  .swiper-3d .swiper-cube-shadow,
+  .swiper-3d .swiper-slide {
+    transform-style: preserve-3d;
+  }
+
+  .swiper-css-mode > .swiper-wrapper {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .swiper-css-mode > .swiper-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .swiper-css-mode > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: start start;
+  }
+
+  .swiper-css-mode.swiper-horizontal > .swiper-wrapper {
+    scroll-snap-type: x mandatory;
+  }
+
+  .swiper-css-mode.swiper-vertical > .swiper-wrapper {
+    scroll-snap-type: y mandatory;
+  }
+
+  .swiper-css-mode.swiper-free-mode > .swiper-wrapper {
+    scroll-snap-type: none;
+  }
+
+  .swiper-css-mode.swiper-free-mode > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: none;
+  }
+
+  .swiper-css-mode.swiper-centered > .swiper-wrapper::before {
+    content: "";
+    flex-shrink: 0;
+    order: 9999;
+  }
+
+  .swiper-css-mode.swiper-centered > .swiper-wrapper > .swiper-slide {
+    scroll-snap-align: center center;
+    scroll-snap-stop: always;
+  }
+
+  .swiper-css-mode.swiper-centered.swiper-horizontal
+    > .swiper-wrapper
+    > .swiper-slide:first-child {
+    margin-inline-start: var(--swiper-centered-offset-before);
+  }
+
+  .swiper-css-mode.swiper-centered.swiper-horizontal > .swiper-wrapper::before {
+    height: 100%;
+    min-height: 1px;
+    width: var(--swiper-centered-offset-after);
+  }
+
+  .swiper-css-mode.swiper-centered.swiper-vertical
+    > .swiper-wrapper
+    > .swiper-slide:first-child {
+    margin-block-start: var(--swiper-centered-offset-before);
+  }
+
+  .swiper-css-mode.swiper-centered.swiper-vertical > .swiper-wrapper::before {
+    width: 100%;
+    min-width: 1px;
+    height: var(--swiper-centered-offset-after);
+  }
+
+  .swiper-3d .swiper-slide-shadow,
+  .swiper-3d .swiper-slide-shadow-bottom,
+  .swiper-3d .swiper-slide-shadow-left,
+  .swiper-3d .swiper-slide-shadow-right,
+  .swiper-3d .swiper-slide-shadow-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .swiper-3d .swiper-slide-shadow {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  .swiper-3d .swiper-slide-shadow-left {
+    background-image: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .swiper-3d .swiper-slide-shadow-right {
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .swiper-3d .swiper-slide-shadow-top {
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .swiper-3d .swiper-slide-shadow-bottom {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .swiper-lazy-preloader {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    z-index: 10;
+    transform-origin: 50%;
+    box-sizing: border-box;
+    border: 4px solid var(--swiper-preloader-color, var(--swiper-theme-color));
+    border-radius: 50%;
+    border-top-color: transparent;
+  }
+
+  .swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader,
+  .swiper:not(.swiper-watch-progress) .swiper-lazy-preloader {
+    animation: swiper-preloader-spin 1s infinite linear;
+  }
+
+  .swiper-lazy-preloader-white {
+    --swiper-preloader-color: #fff;
+  }
+
+  .swiper-lazy-preloader-black {
+    --swiper-preloader-color: #000;
+  }
+
+  @keyframes swiper-preloader-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .swiper-virtual .swiper-slide {
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  .swiper-virtual.swiper-css-mode .swiper-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+
+  .swiper-virtual.swiper-css-mode.swiper-horizontal .swiper-wrapper::after {
+    height: 1px;
+    width: var(--swiper-virtual-size);
+  }
+
+  .swiper-virtual.swiper-css-mode.swiper-vertical .swiper-wrapper::after {
+    width: 1px;
+    height: var(--swiper-virtual-size);
+  }
+
+  :root {
+    --swiper-navigation-size: 44px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    position: absolute;
+    top: var(--swiper-navigation-top-offset, 50%);
+    width: calc(var(--swiper-navigation-size) / 44 * 27);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+  }
+
+  .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .swiper-button-next.swiper-button-hidden,
+  .swiper-button-prev.swiper-button-hidden {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .swiper-navigation-disabled .swiper-button-next,
+  .swiper-navigation-disabled .swiper-button-prev {
+    display: none !important;
+  }
+
+  .swiper-button-next svg,
+  .swiper-button-prev svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: center;
+  }
+
+  .swiper-rtl .swiper-button-next svg,
+  .swiper-rtl .swiper-button-prev svg {
+    transform: rotate(180deg);
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: var(--swiper-navigation-sides-offset, 10px);
+    right: auto;
+  }
+
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: var(--swiper-navigation-sides-offset, 10px);
+    left: auto;
+  }
+
+  .swiper-button-lock {
+    display: none;
+  }
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: var(--swiper-navigation-size);
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-rtl .swiper-button-next:after {
+    content: "prev";
+  }
+
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: var(--swiper-navigation-sides-offset, 10px);
+    left: auto;
+  }
+
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-prev:after {
+    content: "next";
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 0.3s opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+  }
+
+  .swiper-pagination.swiper-pagination-hidden {
+    opacity: 0;
+  }
+
+  .swiper-pagination-disabled > .swiper-pagination,
+  .swiper-pagination.swiper-pagination-disabled {
+    display: none !important;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: var(--swiper-pagination-bottom, 8px);
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+    width: 100%;
+  }
+
+  .swiper-pagination-bullets-dynamic {
+    overflow: hidden;
+    font-size: 0;
+  }
+
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transform: scale(0.33);
+    position: relative;
+  }
+
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
+    transform: scale(1);
+  }
+
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+    transform: scale(1);
+  }
+
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+    transform: scale(0.66);
+  }
+
+  .swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet-active-prev-prev {
+    transform: scale(0.33);
+  }
+
+  .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+    transform: scale(0.66);
+  }
+
+  .swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet-active-next-next {
+    transform: scale(0.33);
+  }
+
+  .swiper-pagination-bullet {
+    width: var(
+      --swiper-pagination-bullet-width,
+      var(--swiper-pagination-bullet-size, 8px)
+    );
+    height: var(
+      --swiper-pagination-bullet-height,
+      var(--swiper-pagination-bullet-size, 8px)
+    );
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+    background: var(--swiper-pagination-bullet-inactive-color, #000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+  }
+
+  button.swiper-pagination-bullet {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+  }
+
+  .swiper-pagination-bullet:only-child {
+    display: none !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets,
+  .swiper-vertical > .swiper-pagination-bullets {
+    right: var(--swiper-pagination-right, 8px);
+    left: var(--swiper-pagination-left, auto);
+    top: 50%;
+    transform: translate3d(0px, -50%, 0);
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets
+    .swiper-pagination-bullet,
+  .swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
+    display: block;
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-vertical
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+  }
+
+  .swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet,
+  .swiper-vertical
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet {
+    display: inline-block;
+    transition: 0.2s transform, 0.2s top;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  }
+
+  .swiper-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  .swiper-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet {
+    transition: 0.2s transform, 0.2s left;
+  }
+
+  .swiper-horizontal.swiper-rtl
+    > .swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet {
+    transition: 0.2s transform, 0.2s right;
+  }
+
+  .swiper-pagination-fraction {
+    color: var(--swiper-pagination-fraction-color, inherit);
+  }
+
+  .swiper-pagination-progressbar {
+    background: var(
+      --swiper-pagination-progressbar-bg-color,
+      rgba(0, 0, 0, 0.25)
+    );
+    position: absolute;
+  }
+
+  .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transform-origin: left top;
+  }
+
+  .swiper-rtl
+    .swiper-pagination-progressbar
+    .swiper-pagination-progressbar-fill {
+    transform-origin: right top;
+  }
+
+  .swiper-horizontal > .swiper-pagination-progressbar,
+  .swiper-pagination-progressbar.swiper-pagination-horizontal,
+  .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
+  .swiper-vertical
+    > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+    width: 100%;
+    height: var(--swiper-pagination-progressbar-size, 4px);
+    left: 0;
+    top: 0;
+  }
+
+  .swiper-horizontal
+    > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+  .swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite,
+  .swiper-pagination-progressbar.swiper-pagination-vertical,
+  .swiper-vertical > .swiper-pagination-progressbar {
+    width: var(--swiper-pagination-progressbar-size, 4px);
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .swiper-pagination-lock {
+    display: none;
+  }
+
+  .swiper-scrollbar {
+    border-radius: var(--swiper-scrollbar-border-radius, 10px);
+    position: relative;
+    touch-action: none;
+    background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.1));
+  }
+
+  .swiper-scrollbar-disabled > .swiper-scrollbar,
+  .swiper-scrollbar.swiper-scrollbar-disabled {
+    display: none !important;
+  }
+
+  .swiper-horizontal > .swiper-scrollbar,
+  .swiper-scrollbar.swiper-scrollbar-horizontal {
+    position: absolute;
+    left: var(--swiper-scrollbar-sides-offset, 1%);
+    bottom: var(--swiper-scrollbar-bottom, 4px);
+    top: var(--swiper-scrollbar-top, auto);
+    z-index: 50;
+    height: var(--swiper-scrollbar-size, 4px);
+    width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
+  }
+
+  .swiper-scrollbar.swiper-scrollbar-vertical,
+  .swiper-vertical > .swiper-scrollbar {
+    position: absolute;
+    left: var(--swiper-scrollbar-left, auto);
+    right: var(--swiper-scrollbar-right, 4px);
+    top: var(--swiper-scrollbar-sides-offset, 1%);
+    z-index: 50;
+    width: var(--swiper-scrollbar-size, 4px);
+    height: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 1%));
+  }
+
+  .swiper-scrollbar-drag {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: var(--swiper-scrollbar-drag-bg-color, rgba(0, 0, 0, 0.5));
+    border-radius: var(--swiper-scrollbar-border-radius, 10px);
+    left: 0;
+    top: 0;
+  }
+
+  .swiper-scrollbar-cursor-drag {
+    cursor: move;
+  }
+
+  .swiper-scrollbar-lock {
+    display: none;
+  }
+
+  .swiper-zoom-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .swiper-zoom-container > canvas,
+  .swiper-zoom-container > img,
+  .swiper-zoom-container > svg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .swiper-slide-zoomed {
+    cursor: move;
+    touch-action: none;
+  }
+
+  .swiper .swiper-notification {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1000;
+  }
+
+  .swiper-free-mode > .swiper-wrapper {
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+  }
+
+  .swiper-grid > .swiper-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .swiper-grid-column > .swiper-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .swiper-fade.swiper-free-mode .swiper-slide {
+    transition-timing-function: ease-out;
+  }
+
+  .swiper-fade .swiper-slide {
+    pointer-events: none;
+    transition-property: opacity;
+  }
+
+  .swiper-fade .swiper-slide .swiper-slide {
+    pointer-events: none;
+  }
+
+  .swiper-fade .swiper-slide-active {
+    pointer-events: auto;
+  }
+
+  .swiper-fade .swiper-slide-active .swiper-slide-active {
+    pointer-events: auto;
+  }
+
+  .swiper.swiper-cube {
+    overflow: visible;
+  }
+
+  .swiper-cube .swiper-slide {
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+    visibility: hidden;
+    transform-origin: 0 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-cube .swiper-slide .swiper-slide {
+    pointer-events: none;
+  }
+
+  .swiper-cube.swiper-rtl .swiper-slide {
+    transform-origin: 100% 0;
+  }
+
+  .swiper-cube .swiper-slide-active,
+  .swiper-cube .swiper-slide-active .swiper-slide-active {
+    pointer-events: auto;
+  }
+
+  .swiper-cube .swiper-slide-active,
+  .swiper-cube .swiper-slide-next,
+  .swiper-cube .swiper-slide-prev {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .swiper-cube .swiper-cube-shadow {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .swiper-cube .swiper-cube-shadow:before {
+    content: "";
+    background: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    filter: blur(50px);
+  }
+
+  .swiper-cube .swiper-slide-next + .swiper-slide {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-bottom,
+  .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-left,
+  .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-right,
+  .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-top {
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .swiper.swiper-flip {
+    overflow: visible;
+  }
+
+  .swiper-flip .swiper-slide {
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1;
+  }
+
+  .swiper-flip .swiper-slide .swiper-slide {
+    pointer-events: none;
+  }
+
+  .swiper-flip .swiper-slide-active,
+  .swiper-flip .swiper-slide-active .swiper-slide-active {
+    pointer-events: auto;
+  }
+
+  .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-bottom,
+  .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-left,
+  .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-right,
+  .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-top {
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .swiper-creative .swiper-slide {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    transition-property: transform, opacity, height;
+  }
+
+  .swiper.swiper-cards {
+    overflow: visible;
+  }
+
+  .swiper-cards .swiper-slide {
+    transform-origin: center bottom;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+</style>
+
+<style>
+  @font-face {
+    font-family: "HurmeGeometricSans3-Bold";
+    src: local("HurmeGeometricSans3-Bold"),
+      url("./fonts/HurmeGeometricSans3-Bold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "HurmeGeometricSans3-Regular";
+    src: local("HurmeGeometricSans3-Regular"),
+      url("./fonts/HurmeGeometricSans3-Regular.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "HurmeGeometricSans3-Black";
+    src: local("HurmeGeometricSans3-Black"),
+      url("./fonts/HurmeGeometricSans3-Black.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "HurmeGeometricSans3-Light";
+    src: local("HurmeGeometricSans3-Light"),
+      url("./fonts/HurmeGeometricSans3-Light.woff2") format("woff2");
+  }
+
+  #es-rc #es-rc-content {
+    --white: #fff;
+    --light-blue: #7ebff4;
+    --blue: #005bab;
+    --yellow: #f6c641;
+    --orange: #fba40e;
+    --dark-blue: #002349;
+    --pink: #e3077d;
+    --green: #1a6913;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: "HurmeGeometricSans3-Regular", sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 1.2;
+    overflow: hidden;
+    background-color: #ffffff;
+    color: var(--white);
+  }
+
+  #es-rc #es-rc-content * {
+    box-sizing: border-box;
+  }
+
+  #es-rc #es-rc-content h2,
+  #es-rc #es-rc-content h3,
+  #es-rc #es-rc-content h4,
+  #es-rc #es-rc-content h5,
+  #es-rc #es-rc-content h6 {
+    margin: 0;
+  }
+
+  #es-rc #es-rc-content p {
+    margin: 0;
+  }
+
+  #es-rc #es-rc-content img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #es-rc #es-rc-content .es-kv__mobile,
+  #es-rc #es-rc-content .es-kv {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: flex-start;
+    padding: 9% 4%;
+
+    aspect-ratio: 16 / 9;
+    background-image: url(./img/kv-background.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc #es-rc-content .es-kv__mobile {
+    display: none;
+  }
+
+  #es-rc #es-rc-content .es-kv__logo-img {
+    width: 42vw;
+    max-width: 531px;
+  }
+
+  #es-rc #es-rc-content .es-kv__title {
+    font-size: 7vw;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-products {
+    overflow-x: auto;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+
+    gap: 2.625em;
+    padding: 1em 1.313em;
+    background-color: var(--blue);
+
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  #es-rc #es-rc-content .es-products__item {
+    width: 125px;
+
+    text-decoration: none;
+    color: var(--white);
+    cursor: pointer;
+  }
+
+  #es-rc #es-rc-content .es-products__item-title {
+    margin-top: 1.375em;
+    font-size: 1.125em;
+    text-align: center;
+  }
+
+  #es-rc #es-rc-content .es-products__item-img {
+    max-width: unset;
+    width: 100px;
+    height: 100px;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators {
+    background-color: var(--blue);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__enso {
+    padding: 0.888em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5em;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__enso-saturator {
+    flex: 1;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__enso-content {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__enso-content-title {
+    text-align: center;
+    font-size: 3.75em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__menu {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__menu > a {
+    min-width: 6.944em;
+
+    flex: 1;
+    padding: 1.438em 0;
+    background-color: var(--light-blue);
+    border-right: 1px solid var(--dark-blue);
+    transition: background-color 0.3s;
+
+    text-decoration: none;
+    font-size: 1.125em;
+    text-align: center;
+    color: var(--dark-blue);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__menu > a:last-child {
+    border-right: none;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__menu > a:hover {
+    background-color: #1e90ff;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__desc {
+    padding: 2.5em 1.875em;
+    background-color: var(--blue);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators__desc-text {
+    font-size: 1.375em;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video__carousel {
+    flex: 0.6;
+
+    background-color: red;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video__video {
+    flex: 0.4;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.875em 2.5em;
+    background-color: var(--blue);
+  }
+
+  #es-rc #es-rc-content .es-map {
+    height: 400px;
+    background-color: red;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-saturator-benefits {
+    overflow-x: auto;
+
+    display: none;
+    padding: 2.063em;
+    flex-direction: column;
+    background-color: var(--blue);
+  }
+
+  #es-rc #es-rc-content .es-map.show,
+  #es-rc #es-rc-content .es-saturator-benefits.show {
+    display: flex;
+  }
+
+  #es-rc #es-rc-content .es-map__arrow,
+  #es-rc #es-rc-content .es-saturator-benefits__arrow {
+    font-size: 2.25em;
+    cursor: pointer;
+    padding: 0.19em 0;
+    background-color: var(--light-blue);
+
+    color: #000000;
+    text-align: center;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  #es-rc #es-rc-content .es-map__arrow {
+    color: var(--white);
+    background-color: #f498c9;
+  }
+
+  #es-rc #es-rc-content .es-saturator-benefits__row {
+    display: grid;
+    grid-template-columns: repeat(6, 187px);
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row:first-child
+    > .es-saturator-benefits__row-cell {
+    padding: 0;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row:nth-child(2)
+    > .es-saturator-benefits__row-cell {
+    border-top: 2px solid var(--white);
+  }
+
+  #es-rc #es-rc-content .es-saturator-benefits__row-cell {
+    flex: 1;
+    padding: 2.125em 1.313em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #es-rc #es-rc-content .es-saturator-benefits__row-cell-bottle-img {
+    width: 85px;
+    height: 87px;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row:first-child
+    > .es-saturator-benefits__row-cell {
+    flex-direction: column;
+    gap: 1.25em;
+    justify-content: flex-end;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row:first-child
+    .es-saturator-benefits__row-cell-img {
+    display: block;
+    margin: 0 auto; /* center horizontally */
+    width: auto; /* keeps original width */
+    height: auto; /* keeps original height */
+    max-width: none; /* prevent scaling down */
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row:first-child
+    .es-saturator-benefits__row-cell-title {
+    font-size: 1.25em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    text-align: center;
+    margin-bottom: 2.125em;
+  }
+
+  #es-rc #es-rc-content .es-saturator-benefits__row-cell:first-child {
+    justify-content: flex-start;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row
+    .es-saturator-benefits__row-cell-colors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.313em;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row
+    .es-saturator-benefits__row-cell-colors-img {
+    margin: unset;
+  }
+
+  #es-rc #es-rc-content .es-saturator-benefits__row-cell-text {
+    font-size: 1.125em;
+    text-align: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-saturator-benefits__row:not(:first-child)
+    > .es-saturator-benefits__row-cell:not(:last-child) {
+    border-right: 2px solid var(--white);
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange {
+    font-size: 3px;
+    position: relative;
+    padding: 49.25%;
+    background-image: url("./img/wymien-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--pink);
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange-mobile {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__top {
+    flex: 1;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-image: url("./img/exchange-bottle.png");
+    background-color: var(--pink);
+  }
+
+  #es-rc #es-rc-content div.es-bottle-exchange-mobile__top-price {
+    width: 75px;
+    height: 75px;
+    margin-left: 10px;
+    margin-top: 10px;
+
+    position: absolute;
+    right: unset;
+    bottom: unset;
+    top: unset;
+    left: unset;
+    transform: unset;
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom {
+    flex: 1;
+    background-color: var(--pink);
+
+    display: flex;
+    gap: 3em;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange__top-title {
+    width: fit-content;
+    line-height: 1em;
+    font-size: 3em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    text-align: center;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translate(-100%, 0%);
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__bottom-title {
+    line-height: 1em;
+    font-size: 3em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    text-align: center;
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange__bottom-title {
+    width: fit-content;
+
+    font-size: 2em;
+    font-family: "HurmeGeometricSans3-Black", sans-serif;
+    text-align: center;
+
+    position: absolute;
+    bottom: -3%;
+    left: 50%;
+    transform: translate(0, -20%);
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price,
+  #es-rc #es-rc-content .es-bottle-exchange__price {
+    width: 125px;
+    height: 125px;
+    text-align: center;
+    background-color: #67043a;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: -8%;
+    left: 50%;
+    transform: translate(-210%, -165%);
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(1),
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price > p:nth-child(1),
+  #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(3),
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price > p:nth-child(3) {
+    font-size: 1.375em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-bottle-exchange-mobile__top-price > p:nth-child(2),
+  #es-rc #es-rc-content .es-bottle-exchange__price > p:nth-child(2) {
+    font-size: 1.25em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-bottles-gallery {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: var(--green);
+  }
+
+  #es-rc #es-rc-content .es-bottles-gallery__left {
+    flex: 1;
+
+    padding: 9.925% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-bottles-gallery__left-title {
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    font-size: 3.313em;
+    text-align: center;
+  }
+
+  #es-rc #es-rc-content .es-bottles-gallery__right {
+    aspect-ratio: 16 / 9;
+    flex: 1;
+    display: flex;
+    gap: 0.5em;
+  }
+
+  #es-rc #es-rc-content .es-bottles-gallery__right-col {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(1)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+    flex: 1;
+
+    background-image: url(./img/piramida.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(1)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+    flex: 1;
+
+    background-image: url(./img/berries.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(2)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+    flex: 0.6;
+
+    background-image: url(./img/white-saturator.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(2)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+    flex: 0.4;
+
+    background-image: url(./img/orange.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(3)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+    flex: 0.2;
+
+    background-image: url(./img/lemon.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(3)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+    flex: 0.25;
+
+    background-image: url(./img/grapefruit.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(3)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(3) {
+    flex: 0.55;
+
+    background-image: url(./img/glass-with-orange.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(4)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(1) {
+    flex: 0.35;
+
+    background-image: url(./img/ice.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-bottles-gallery__right-col:nth-child(4)
+    .es-bottles-gallery__right-col-image-placeholder:nth-child(2) {
+    flex: 0.65;
+
+    background-image: url(./img/black-saturator.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+
+    padding: 2.688em 1.813em;
+    background-color: #9cb644;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__litres {
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__litres-col > p {
+    text-align: center;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(1) {
+    font-size: 1.563em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(2) {
+    margin-top: 0.291em;
+    margin-bottom: 0.527em;
+    font-size: 3.438em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__litres-col > p:nth-child(3) {
+    font-size: 1.25em;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__references > p > sup,
+  #es-rc #es-rc-content .es-bottle-counters__litres-col > p > sup {
+    font-size: 0.6em;
+  }
+
+  #es-rc #es-rc-content .es-bottle-counters__references-text {
+    text-align: left;
+  }
+
+  #es-rc #es-rc-content .es-faq {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    background-color: #13294b;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+
+  #es-rc #es-rc-content .es-faq__title {
+    padding-left: 0.833em;
+    padding-bottom: 0.5em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    font-size: 1.875em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  #es-rc #es-rc-content .es-faq__item-check {
+    width: 30px;
+  }
+
+  #es-rc #es-rc-content .es-faq__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #es-rc #es-rc-content .es-faq__item-visible {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion {
+    margin: 0 auto;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element:last-of-type {
+    border-bottom: none;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content {
+    font-size: 1.25em;
+    line-height: 1.4;
+    color: #ffffff;
+    overflow: hidden;
+    margin-top: -30px;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--bold {
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--link {
+    color: var(--white);
+    text-decoration: none;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+  }
+
+  .es-accordion__element-content--list {
+    padding-left: 2.75em;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--list-heading {
+    display: inline-block;
+    margin-bottom: 0.937em;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--link:hover {
+    color: #0099ff;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--link:active {
+    color: #005fa3;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--link:focus {
+    color: #003f6d;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content--link:visited {
+    color: #551a8b;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
+    padding-left: 25px;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion__title {
+    padding: 4px 15px 17px 60px;
+    font-size: 1.563em;
+    color: #fff;
+    transition: all 200ms ease-out;
+    border-radius: 5px;
+    font-family: "HurmeGeometricSans3-Regular", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion .es-accordion__arrow {
+    width: 17px;
+    position: absolute;
+    left: 28px;
+    top: 10px;
+    margin: auto 0;
+    transition: all 0.3s ease-out;
+  }
+
+  #es-rc #es-rc-content .es-faq .es-accordion .active .es-accordion__arrow {
+    transform: rotate(180deg);
+  }
+
+  #es-rc #es-rc-content .es-slider .swiper-button-prev:after,
+  #es-rc #es-rc-content .es-slider .swiper-rtl .swiper-button-next:after,
+  #es-rc #es-rc-content .es-slider .swiper-button-next:after,
+  #es-rc #es-rc-content .es-slider .swiper-rtl .swiper-button-next:after {
+    content: "";
+  }
+
+  #es-rc #es-rc-content .es-slider .swiper-button-next,
+  #es-rc #es-rc-content .es-slider .swiper-button-prev {
+    width: unset;
+    height: unset;
+    position: static;
+    justify-content: unset;
+    display: unset;
+  }
+
+  #es-rc #es-rc-content .es-slider__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    padding: 32px;
+  }
+
+  #es-rc #es-rc-content .es-slider__buttons--prev__img,
+  #es-rc #es-rc-content .es-slider__buttons--next__img {
+    display: block;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+  }
+
+  #es-rc #es-rc-content .es-slider__buttons--prev__img {
+    transform: rotate(180deg);
+  }
+
+  #es-rc #es-rc-content .es-slider__buttons--next {
+    margin-left: auto;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide__right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide__title {
+    font-family: "HurmeGeometricSans3-Black", sans-serif;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide__text {
+    padding-right: 32px;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide--1 {
+    background-color: #002349;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide--2 {
+    background-color: #eeeae5;
+    color: #13294b;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide--2 ::-moz-selection {
+    background-color: #13294b;
+    color: #eeeae5;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide--2 ::selection {
+    background-color: #13294b;
+    color: #eeeae5;
+  }
+
+  #es-rc #es-rc-content .es-slide__img {
+    width: 100%;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide__left {
+    width: 100%;
+  }
+
+  #es-rc #es-rc-content .es-slider__slide__right > .es-slide__img:nth-child(1),
+  #es-rc #es-rc-content .es-slider__slide__left > .es-slide__img:nth-child(1) {
+    display: none;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-content-title {
+    padding-inline: 1em;
+    text-align: center;
+    font-size: 3.75em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    color: #13294b;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu > a {
+    min-width: 125px;
+    flex: 1;
+    padding: 1.438em 0;
+    background-color: var(--orange);
+    border-right: 1px solid var(--white);
+    transition: background-color 0.3s;
+
+    text-decoration: none;
+    font-size: 1.125em;
+    text-align: center;
+    color: var(--white);
+  }
+
+  #es-rc
+    #es-rc-content
+    .es-get-to-know-saturators--orange__menu
+    > a:last-child {
+    border-right: none;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__menu > a:hover {
+    background-color: #b16f00;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__desc {
+    padding: 2.5em 1.875em;
+    background-color: #fde993;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__desc-text {
+    font-size: 1.375em;
+    color: #13294b;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--orange {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.875em 2.5em;
+    background-color: #fde993;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--orange__carousel {
+    flex: 0.6;
+
+    background-color: red;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--orange__video {
+    flex: 0.4;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange {
+    background-color: var(--yellow);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso {
+    padding-top: 2.25em;
+
+    display: flex;
+    gap: 2.5em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-saturator {
+    flex: 0.3;
+    padding-inline: 4.063em;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-saturator-img {
+    margin: unset;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso-content {
+    flex: 0.7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-content-title {
+    text-align: center;
+    font-size: 3.75em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    color: #13294b;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__menu {
+    overflow-x: auto;
+    display: flex;
+    background-color: var(--green);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__menu > a {
+    min-width: 125px;
+    flex: 1;
+    padding: 1.438em 0;
+    border-right: 1px solid var(--white);
+    transition: background-color 0.3s;
+
+    text-decoration: none;
+    font-size: 1.125em;
+    text-align: center;
+    color: var(--white);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__menu > a:last-child {
+    border-right: none;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__menu > a:hover {
+    background-color: #09a301;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__desc {
+    padding: 2.5em 1.875em;
+    background-color: #d4dd7c;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__desc-text {
+    font-size: 1.375em;
+    color: #13294b;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--green {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.875em 2.5em;
+    background-color: #d4dd7c;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--green__carousel {
+    flex: 0.6;
+
+    background-color: red;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--green__video {
+    flex: 0.4;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green {
+    background-color: #9cb644;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__enso {
+    padding-top: 2.25em;
+    padding-inline: 4.063em;
+    display: flex;
+    gap: 2.5em;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-saturator {
+    flex: 0.5;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-saturator-img {
+    margin: unset;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--green__enso-content {
+    flex: 0.5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content-title {
+    padding-top: 1em;
+    padding-inline: 1em;
+    text-align: center;
+    font-size: 3.75em;
+    font-family: "HurmeGeometricSans3-Bold", sans-serif;
+    color: var(--white);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu {
+    display: flex;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu > a {
+    flex: 1;
+    padding: 1.438em 0;
+    background-color: var(--pink);
+    border-right: 1px solid var(--white);
+    transition: background-color 0.3s;
+
+    text-decoration: none;
+    font-size: 1.125em;
+    text-align: center;
+    color: var(--white);
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu > a:last-child {
+    border-right: none;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__menu > a:hover {
+    background-color: #09a301;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__desc {
+    padding: 2.5em 1.875em;
+    background-color: #67043a;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__desc-text {
+    font-size: 1.375em;
+    color: var(--white);
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--pink {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.875em 2.5em;
+    background-color: #67043a;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--pink__carousel {
+    flex: 0.6;
+
+    background-color: red;
+  }
+
+  #es-rc #es-rc-content .es-saturators-carousel-and-video--pink__video {
+    flex: 0.4;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink {
+    background-color: #e3087e;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
+    padding-top: 0.5em;
+    display: flex;
+    gap: 2.5em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-saturator {
+    width: 100%;
+    flex: 0.3;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-saturator-img {
+    margin: unset;
+  }
+
+  #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content {
+    flex: 0.7;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  @media screen and (min-width: 427px) {
+    #es-rc #es-rc-content .es-bottle-exchange {
+      font-size: 5px;
+    }
+  }
+
+  @media screen and (min-width: 650px) {
+    #es-rc #es-rc-content .es-faq .es-accordion {
+      max-width: none;
+    }
+
+    #es-rc #es-rc-content .es-faq .es-accordion__title {
+      font-size: 20px;
+    }
+
+    #es-rc #es-rc-content .es-faq .es-accordion__element-content p {
+      font-size: 20px;
+    }
+    #es-rc #es-rc-content .es-bottle-exchange {
+      background-image: url("./img/wymien-desktop.png");
+      padding: 27.25%;
+    }
+  }
+
+  @container es-rc-content (min-width: 660px) {
+    #es-rc #es-rc-content .es-slider__slide {
+      gap: 48px;
+      font-size: 24px;
+    }
+
+    #es-rc #es-rc-content .es-slider__slide__right {
+      gap: 24px;
+    }
+  }
+
+  @container es-rc-content (min-width: 756px) {
+    #es-rc #es-rc-content .es-slider__slide {
+      flex-direction: row;
+    }
+
+    #es-rc #es-rc-content .es-slider__slide__right {
+      text-align: left;
+      flex: 1 1 0;
+    }
+
+    #es-rc #es-rc-content .es-slider__slide__left {
+      flex: 1 1 0;
+    }
+
+    #es-rc #es-rc-content .es-slider__slide__text {
+      padding-right: 48px;
+    }
+  }
+
+  @media screen and (min-width: 576px) {
+    #es-rc #es-rc-content .es-bottle-exchange {
+      font-size: 7px;
+    }
+
+    #es-rc #es-rc-content {
+      font-size: 16px;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters {
+      gap: 1.813em;
+    }
+
+    #es-rc #es-rc-content .es-saturators-carousel-and-video--pink,
+    #es-rc #es-rc-content .es-saturators-carousel-and-video--green,
+    #es-rc #es-rc-content .es-saturators-carousel-and-video--orange,
+    #es-rc #es-rc-content .es-saturators-carousel-and-video {
+      flex-direction: row;
+    }
+
+    #es-rc
+      #es-rc-content
+      .es-slider__slide__right
+      > .es-slide__img:nth-child(1),
+    #es-rc
+      #es-rc-content
+      .es-slider__slide__left
+      > .es-slide__img:nth-child(1) {
+      display: block;
+    }
+
+    #es-rc
+      #es-rc-content
+      .es-slider__slide__right
+      > .es-slide__img:nth-child(2),
+    #es-rc
+      #es-rc-content
+      .es-slider__slide__left
+      > .es-slide__img:nth-child(2) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 875px) {
+    #es-rc #es-rc-content .es-bottle-exchange {
+      font-size: 11px;
+    }
+
+    #es-rc #es-rc-content .es-bottle-counters__litres {
+      flex-direction: row;
+      gap: 1.813em;
+    }
+  }
+
+  @media screen and (min-width: 1034px) {
+    #es-rc #es-rc-content .es-products--fixed.es-products {
+      border-left: 8px solid var(--white);
+      border-right: 8px solid var(--white);
+    }
+  }
+
+  @media screen and (min-width: 1232px) {
+    #es-rc #es-rc-content .es-bottle-exchange {
+      font-size: 16px;
+    }
+
+    #es-rc #es-rc-content .es-products--fixed.es-products {
+      border: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange {
+      display: block;
+    }
+
+    #es-rc #es-rc-content .es-bottle-exchange-mobile {
+      display: none;
+    }
+
+    #es-rc #es-rc-content .es-kv__title {
+      font-size: 5.938em;
+    }
+
+    #es-rc #es-rc-content .es-bottles-gallery {
+      flex-direction: row;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators__enso,
+    #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso,
+    #es-rc #es-rc-content .es-get-to-know-saturators--green__enso,
+    #es-rc #es-rc-content .es-get-to-know-saturators--orange__enso {
+      gap: unset;
+      flex-direction: row;
+      align-items: unset;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso {
+      padding-right: unset;
+    }
+
+    #es-rc #es-rc-content .es-get-to-know-saturators--pink__enso-content-title {
+      text-align: left;
+    }
+  }
+</style>
+<div id="es-rc">
+  <div id="es-rc-content">
+    <div class="es-kv">
+      <div class="es-kv__content">
+        <h3 class="es-kv__title">poznaj świat</h3>
+      </div>
+      <div class="es-kv__logo">
+        <img class="es-kv__logo-img" src="./img/logo.png" alt="" />
+      </div>
+    </div>
+    <div class="es-kv__mobile">
+      <div class="es-kv__logo">
+        <img class="es-kv__logo-img" src="./img/logo.png" alt="" />
+      </div>
+      <div class="es-kv__content">
+        <h3 class="es-kv__title">
+          Wypróbuj nasz bestseller
+          <span class="es-kv__title--bold">Cicaplast Balsam B5+</span>
+          w rutynie z innymi produktami
+        </h3>
+      </div>
+    </div>
+
+    <div class="es-products">
+      <div data-target="so-51-promocje" class="es-products__item">
+        <img
+          class="es-products__item-img"
+          alt=""
+          src="./img/promocje-icon.png"
+        />
+        <h3 class="es-products__item-title">promocje</h3>
+      </div>
+
+      <div data-target="so-51-saturatory" class="es-products__item">
+        <img
+          class="es-products__item-img"
+          alt=""
+          src="./img/saturatory-icon.png"
+        />
+        <h3 class="es-products__item-title">saturatory</h3>
+      </div>
+
+      <div data-target="so-51-butelki" class="es-products__item">
+        <img
+          class="es-products__item-img"
+          alt=""
+          src="./img/butelki-icon.png"
+        />
+        <h3 class="es-products__item-title">butelki</h3>
+      </div>
+
+      <div data-target="so-51-syropy" class="es-products__item">
+        <img class="es-products__item-img" alt="" src="./img/syropy-icon.png" />
+        <h3 class="es-products__item-title">syropy</h3>
+      </div>
+
+      <div data-target="so-51-cylindry" class="es-products__item">
+        <img
+          class="es-products__item-img"
+          alt=""
+          src="./img/cylindry-icon.png"
+        />
+        <h3 class="es-products__item-title">cylindry</h3>
+      </div>
+
+      <div data-target="so-51-dlaczego" class="es-products__item">
+        <img
+          class="es-products__item-img"
+          alt=""
+          src="./img/dlaczego-icon.png"
+        />
+        <h3 class="es-products__item-title">dlaczego warto<br />pić lepiej?</h3>
+      </div>
+
+      <div data-target="so-51-pytania" class="es-products__item">
+        <img
+          class="es-products__item-img"
+          alt=""
+          src="./img/pytania-icon.png"
+        />
+        <h3 class="es-products__item-title">pytania<br />i odpowiedzi</h3>
+      </div>
+    </div>
+
+    <div class="es-slider" id="so-51-promocje">
+      <!-- Slider main container -->
+      <div class="swiper es-swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper es-swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide es-slider__slide es-slider__slide--1">
+            <div class="es-slider__slide__left">
+              <img
+                src="./img/slide-1.jpg"
+                alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
+                class="es-slide__img"
+              />
+              <img
+                src="./img/slide-1-mobile.png"
+                alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
+                class="es-slide__img"
+              />
+            </div>
           </div>
-          <div class="es-kv__logo">
-            <img class="es-kv__logo-img" src="./img/logo.png" alt="" />
+
+          <div class="swiper-slide es-slider__slide es-slider__slide--2">
+            <div class="es-slider__slide__left">
+              <img
+                src="./img/slide-2.jpg"
+                alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
+                class="es-slide__img"
+              />
+              <img
+                src="./img/slide-2-mobile.png"
+                alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
+                class="es-slide__img"
+              />
+            </div>
           </div>
         </div>
-        <div class="es-kv__mobile">
-          <div class="es-kv__logo">
-            <img class="es-kv__logo-img" src="./img/logo.png" alt="" />
-          </div>
-          <div class="es-kv__content">
-            <h3 class="es-kv__title">
-              Wypróbuj nasz bestseller
-              <span class="es-kv__title--bold">Cicaplast Balsam B5+</span>
-              w rutynie z innymi produktami
-            </h3>
-          </div>
-        </div>
 
-        <div class="es-products">
-          <div data-target="so-51-promocje" class="es-products__item">
+        <!-- If we need navigation buttons -->
+        <div class="es-slider__buttons">
+          <div
+            class="swiper-button-prev es-swiper-button-prev es-slider__buttons--prev"
+          >
             <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/promocje-icon.png"
+              class="es-slider__buttons--prev__img"
+              src="./img/btn-next.png"
+              alt="Cofnij do poprzedniego slajdu"
             />
-            <h3 class="es-products__item-title">promocje</h3>
           </div>
-
-          <div data-target="so-51-saturatory" class="es-products__item">
+          <div
+            class="swiper-button-next es-swiper-button-next es-slider__buttons--next"
+          >
             <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/saturatory-icon.png"
+              class="es-slider__buttons--next__img"
+              src="./img/btn-next.png"
+              alt="Przewiń do następnego slajdu"
             />
-            <h3 class="es-products__item-title">saturatory</h3>
           </div>
-
-          <div data-target="so-51-butelki" class="es-products__item">
-            <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/butelki-icon.png"
-            />
-            <h3 class="es-products__item-title">butelki</h3>
-          </div>
-
-          <div data-target="so-51-syropy" class="es-products__item">
-            <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/syropy-icon.png"
-            />
-            <h3 class="es-products__item-title">syropy</h3>
-          </div>
-
-          <div data-target="so-51-cylindry" class="es-products__item">
-            <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/cylindry-icon.png"
-            />
-            <h3 class="es-products__item-title">cylindry</h3>
-          </div>
-
-          <div data-target="so-51-dlaczego" class="es-products__item">
-            <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/dlaczego-icon.png"
-            />
-            <h3 class="es-products__item-title">
-              dlaczego warto<br />pić lepiej?
-            </h3>
-          </div>
-
-          <div data-target="so-51-pytania" class="es-products__item">
-            <img
-              class="es-products__item-img"
-              alt=""
-              src="./img/pytania-icon.png"
-            />
-            <h3 class="es-products__item-title">pytania<br />i odpowiedzi</h3>
-          </div>
-        </div>
-
-        <div class="es-slider" id="so-51-promocje">
-          <!-- Slider main container -->
-          <div class="swiper es-swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper es-swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide es-slider__slide es-slider__slide--1">
-                <div class="es-slider__slide__left">
-                  <img
-                    src="./img/slide-1.jpg"
-                    alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
-                    class="es-slide__img"
-                  />
-                  <img
-                    src="./img/slide-1-mobile.png"
-                    alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
-                    class="es-slide__img"
-                  />
-                </div>
-              </div>
-
-              <div class="swiper-slide es-slider__slide es-slider__slide--2">
-                <div class="es-slider__slide__left">
-                  <img
-                    src="./img/slide-2.jpg"
-                    alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
-                    class="es-slide__img"
-                  />
-                  <img
-                    src="./img/slide-2-mobile.png"
-                    alt="Mężczyzna nalewa własnoręcznie przygotowaną Pepsi z butelki Sodastream prosto do szklanki z kostkami lodu"
-                    class="es-slide__img"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="es-slider__buttons">
-              <div
-                class="swiper-button-prev es-swiper-button-prev es-slider__buttons--prev"
-              >
-                <img
-                  class="es-slider__buttons--prev__img"
-                  src="./img/btn-next.png"
-                  alt="Cofnij do poprzedniego slajdu"
-                />
-              </div>
-              <div
-                class="swiper-button-next es-swiper-button-next es-slider__buttons--next"
-              >
-                <img
-                  class="es-slider__buttons--next__img"
-                  src="./img/btn-next.png"
-                  alt="Przewiń do następnego slajdu"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="es-get-to-know-saturators" id="so-51-saturatory">
-          <div class="es-get-to-know-saturators__enso">
-            <div class="es-get-to-know-saturators__enso-saturator">
-              <img
-                class="es-get-to-know-saturators__enso-saturator-img"
-                src="./img/enso-saturator.png"
-                alt=""
-              />
-            </div>
-            <div class="es-get-to-know-saturators__enso-content">
-              <h3 class="es-get-to-know-saturators__enso-content-title">
-                poznaj saturatory<br />Sodastream
-              </h3>
-            </div>
-          </div>
-
-          <div class="es-get-to-know-saturators__menu">
-            <a href="#">wszystkie</a>
-            <a href="#">promocje</a>
-            <a href="#">terra</a>
-            <a href="#">art</a>
-            <a href="#">duo</a>
-            <a href="#">mix</a>
-            <a href="#">enso</a>
-          </div>
-
-          <div class="es-get-to-know-saturators__desc">
-            <p class="es-get-to-know-saturators__desc-text">
-              Saturatory Sodastream pozwolą Ci w prosty sposób przygotować
-              samodzielnie wodę gazowaną w domowym zaciszu – dokładnie taką, jak
-              lubisz. Bez prądu, bez kabli i bez konieczności noszenia ciężkich
-              zgrzewek z napojami – orzeźwiające bąbelki masz zawsze na
-              wyciągnięcie ręki, idealnie dopasowane do Twojego gustu. W
-              portfolio znajdziesz zarówno modele o prostym, klasycznym
-              wyglądzie, jak i saturatory o nowoczesnym designie, dopasowane do
-              stylu Twojej kuchni. Sprawdź dostępne warianty i rozpocznij swoją
-              bąbelkową przygodę już dziś!
-            </p>
-          </div>
-        </div>
-        <div class="es-saturators-carousel-and-video">
-          <div class="es-saturators-carousel-and-video__carousel">
-            <div
-              style="
-                height: 100%;
-                background-color: red;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              Products Carousel
-            </div>
-          </div>
-          <div class="es-saturators-carousel-and-video__video">
-            <video controls width="100%">
-              <source
-                src="./video/saturator_loop_1080x1080.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-        </div>
-
-        <div class="es-saturator-benefits show" id="so-51-benefity-saturatorow">
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell"></div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/saturator-terra.png"
-              />
-              <p class="es-saturator-benefits__row-cell-title">
-                Sodastream Terra
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/saturator-art.png"
-              />
-              <p class="es-saturator-benefits__row-cell-title">
-                Sodastream Art
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/saturator-duo.png"
-              />
-              <p class="es-saturator-benefits__row-cell-title">
-                Sodastream Duo
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/saturator-enso.png"
-              />
-              <p class="es-saturator-benefits__row-cell-title">
-                Sodastream Enso
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/saturator-mix.png"
-              />
-              <p class="es-saturator-benefits__row-cell-title">
-                Sodastream Mix
-              </p>
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                dostępne kolory
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <div class="es-saturator-benefits__row-cell-colors">
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/white-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/black-color.png"
-                />
-              </div>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <div class="es-saturator-benefits__row-cell-colors">
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/black-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/blue-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/red-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/white-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/green-color.png"
-                />
-              </div>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <div class="es-saturator-benefits__row-cell-colors">
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/white-gradient-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/black-gradient-color.png"
-                />
-              </div>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <div class="es-saturator-benefits__row-cell-colors">
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/black-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/white-color.png"
-                />
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/white-gradient-color.png"
-                />
-              </div>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <div class="es-saturator-benefits__row-cell-colors">
-                <img
-                  class="es-saturator-benefits__row-cell-colors-img"
-                  alt=""
-                  src="./img/black-color.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">gazowanie wody</p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                gazowanie innych napojów
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/cross-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/cross-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/cross-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/cross-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">bezprzewodowy</p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">stalowe detale</p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/cross-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-img"
-                alt=""
-                src="./img/check-mark.png"
-              />
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                rodzaj cylindra
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-bottle-img"
-                alt=""
-                src="./img/bottle.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-bottle-img"
-                alt=""
-                src="./img/bottle.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-bottle-img"
-                alt=""
-                src="./img/bottle.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-bottle-img"
-                alt=""
-                src="./img/bottle.png"
-              />
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <img
-                class="es-saturator-benefits__row-cell-bottle-img"
-                alt=""
-                src="./img/bottle.png"
-              />
-            </div>
-          </div>
-          <div class="es-saturator-benefits__row">
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                butelka dołączona do zestawu
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                butelka fuse 1l
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                butelka fuse 1l
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                butelka fuse 1l + szklana karafka duo 1l
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                butelka fuse 1l
-              </p>
-            </div>
-            <div class="es-saturator-benefits__row-cell">
-              <p class="es-saturator-benefits__row-cell-text">
-                butelka fuse 1l + butelka o pojemności 430ml
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="es-saturator-benefits__arrow"
-          onclick="toggleSection.call(this, 'so-51-benefity-saturatorow')"
-        >
-          &#9650;
-        </div>
-
-        <div class="es-get-to-know-saturators--orange" id="so-51-butelki">
-          <div class="es-get-to-know-saturators--orange__enso">
-            <div class="es-get-to-know-saturators--orange__enso-content">
-              <h3 class="es-get-to-know-saturators--orange__enso-content-title">
-                Twoje bąbelki, Twój&nbsp;styl<br />-&nbsp;gdziekolwiek jesteś
-              </h3>
-            </div>
-            <div class="es-get-to-know-saturators--orange__enso-saturator">
-              <img
-                class="es-get-to-know-saturators--orange__enso-saturator-img"
-                src="./img/bottles.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div class="es-get-to-know-saturators--orange__menu">
-            <a href="#">wszystkie</a>
-            <a href="#">promocje</a>
-            <a href="#">Tritanowe 0,5l</a>
-            <a href="#">Tritanowe 1l</a>
-            <a href="#">szklane</a>
-            <a href="#">termiczne</a>
-          </div>
-
-          <div class="es-get-to-know-saturators--orange__desc">
-            <p class="es-get-to-know-saturators--orange__desc-text">
-              Butelki Sodastream to stylowe dopełnienie Twojego bąbelkowego
-              rytuału – zaprojektowane z myślą o codziennym komforcie, będą
-              Twoim wiernym towarzyszem zarówno w domu, jak i w drodze. Wśród
-              dostępnych wariantów znajdziesz zarówno eleganckie butelki na co
-              dzień, jak i kompaktowe modele, idealne na spacer czy siłownię. W
-              ofercie dostępne są również termiczne butelki Fizz&Go, które
-              pozwalają przygotować napój gazowany bezpośrednio w butelce i –
-              dzięki podwójnym ściankom – utrzymają jego temperaturę nawet do 12
-              godzin. Wybierz wersję najlepiej dopasowaną do swoich potrzeb i
-              nie rozstawaj się z bąbelkami ani na chwilę!
-            </p>
-          </div>
-        </div>
-        <div class="es-saturators-carousel-and-video--orange">
-          <div class="es-saturators-carousel-and-video--orange__video">
-            <video controls width="100%">
-              <source
-                src="./video/butelki_loop_1080x1080.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-          <div class="es-saturators-carousel-and-video--orange__carousel">
-            <div
-              style="
-                height: 100%;
-                background-color: red;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              Products Carousel
-            </div>
-          </div>
-        </div>
-
-        <div class="es-get-to-know-saturators--green" id="so-51-syropy">
-          <div class="es-get-to-know-saturators--green__enso">
-            <div class="es-get-to-know-saturators--green__enso-saturator">
-              <img
-                class="es-get-to-know-saturators--green__enso-saturator-img"
-                src="./img/tastes.png"
-                alt=""
-              />
-            </div>
-            <div class="es-get-to-know-saturators--green__enso-content">
-              <h3 class="es-get-to-know-saturators--green__enso-content-title">
-                poznaj świat<br />smaków Sodastream
-              </h3>
-            </div>
-          </div>
-
-          <div class="es-get-to-know-saturators--green__menu">
-            <a href="#">wszystkie</a>
-            <a href="#">promocje</a>
-            <a href="#">kultowe napoje gazowane</a>
-            <a href="#">lipton</a>
-            <a href="#">owocowe<br />smaki</a>
-            <a href="#">classics</a>
-          </div>
-
-          <div class="es-get-to-know-saturators--green__desc">
-            <p class="es-get-to-know-saturators--green__desc-text">
-              Eksperymentuj ze smakiem i baw się bąbelkami! Syropy Sodastream
-              oferują szeroką gamę możliwości – od klasycznych smaków, które
-              dobrze znasz, przez owocowe warianty bez dodatku cukru, aż po
-              nowoczesne, zaskakujące kompozycje, które pobudzą Twoją
-              wyobraźnię. Wystarczy kilka kropli, by zamienić zwykłą wodę
-              gazowaną w orzeźwiający napój, idealnie dopasowany do Twojego
-              gustu. Odkryj swój ulubiony wariant i spraw by bąbelki miały
-              jeszcze więcej charakteru!
-            </p>
-          </div>
-        </div>
-        <div class="es-saturators-carousel-and-video--green">
-          <div class="es-saturators-carousel-and-video--green__carousel">
-            <div
-              style="
-                height: 100%;
-                background-color: red;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              Products Carousel
-            </div>
-          </div>
-          <div class="es-saturators-carousel-and-video--green__video">
-            <video controls width="100%">
-              <source
-                src="./video/syropy_loop_1080x1080.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-        </div>
-
-        <div class="es-get-to-know-saturators--pink" id="so-51-cylindry">
-          <div class="es-get-to-know-saturators--pink__enso">
-            <div class="es-get-to-know-saturators--pink__enso-content">
-              <h3 class="es-get-to-know-saturators--pink__enso-content-title">
-                niech nigdy<br />nie zabraknie Ci bąbelków
-              </h3>
-            </div>
-            <div class="es-get-to-know-saturators--pink__enso-saturator">
-              <img
-                class="es-get-to-know-saturators--pink__enso-saturator-img"
-                src="./img/bubbles.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div class="es-get-to-know-saturators--pink__desc">
-            <p class="es-get-to-know-saturators--pink__desc-text">
-              Cylinder CO₂ to Twoje źródło świeżych bąbelków, które zmienia
-              zwykłą wodę w przyjemnie orzeźwiający napój — zawsze wtedy, gdy
-              masz na to ochotę. Każdy cylinder pozwala przygotować aż do 60
-              litrów gazowanej wody, co sprawia, że codzienne orzeźwienie jest
-              zawsze w zasięgu ręki.
-              <br /><br />
-              W ofercie Sodastream dostępne są dwa warianty cylindrów CO₂:
-              <br />Różowy – cylinder z szybkim złączem (Quick Connect),
-              dedykowany do modeli: Terra, Art, Duo, Enso oraz MIX.
-              <br />Niebieski – cylinder z wkręcanym gwintem (Twist), pasujący
-              do modeli: Spirit, Jet oraz Source.
-            </p>
-          </div>
-        </div>
-        <div class="es-saturators-carousel-and-video--pink">
-          <div class="es-saturators-carousel-and-video--pink__video">
-            <video controls width="100%">
-              <source
-                src="./video/cylindry_loop_1080x1080.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-          <div class="es-saturators-carousel-and-video--pink__carousel">
-            <div
-              style="
-                height: 100%;
-                background-color: red;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              "
-            >
-              Products Carousel
-            </div>
-          </div>
-        </div>
-
-        <div class="es-bottle-exchange"></div>
-
-        <div class="es-map show" id="so-51-mapa">Map</div>
-        <div
-          class="es-map__arrow"
-          onclick="toggleSection.call(this, 'so-51-mapa')"
-        >
-          &#9650;
-        </div>
-
-        <div class="es-bottles-gallery">
-          <div class="es-bottles-gallery__left">
-            <h3 class="es-bottles-gallery__left-title">
-              zmień jednorazowe<br />butelki na bąbelki
-            </h3>
-          </div>
-          <div class="es-bottles-gallery__right">
-            <div class="es-bottles-gallery__right-col">
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-            </div>
-            <div class="es-bottles-gallery__right-col">
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-            </div>
-            <div class="es-bottles-gallery__right-col">
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-            </div>
-            <div class="es-bottles-gallery__right-col">
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-              <div
-                class="es-bottles-gallery__right-col-image-placeholder"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="es-bottle-counters" id="so-51-dlaczego">
-          <div class="es-bottle-counters__litres">
-            <div class="es-bottle-counters__litres-col">
-              <p>1 saturator<br />pozwala zastąpić</p>
-              <p id="counter1">0</p>
-              <p>
-                plastikowych butelek<br />jednorazowego użytku&nbsp;<sup>1</sup>
-              </p>
-            </div>
-
-            <div class="es-bottle-counters__litres-col">
-              <p>1 syrop Sodastream<br />pozwala przygotować</p>
-              <p><span id="counter2">0</span> litrów</p>
-              <p>Twojego ulubionego<br />napoju&nbsp;<sup>2</sup></p>
-            </div>
-
-            <div class="es-bottle-counters__litres-col">
-              <p>1 cylinder CO₂<br />pozwala przygotować</p>
-              <p><span id="counter3">0</span> litrów</p>
-              <p>wody nagazowanej tak,<br />jak lubisz&nbsp;<sup>3</sup></p>
-            </div>
-          </div>
-
-          <div class="es-bottle-counters__references">
-            <p class="es-bottle-counters__references-text">
-              <sup>1</sup>&nbsp;Plastikowych butelek jednorazowego użytku o
-              pojemności 0,5 l. W zależności od poziomu nagazowania i modelu
-              saturatora.
-            </p>
-            <p class="es-bottle-counters__references-text">
-              <sup>2</sup>&nbsp;Jeśli przygotowane zgodnie z instrukcją na
-              opakowaniu.
-            </p>
-            <p class="es-bottle-counters__references-text">
-              <sup>3</sup>&nbsp;W zależności od poziomu nagazowania i modelu
-              saturatora.
-            </p>
-          </div>
-        </div>
-
-        <div class="es-faq" id="so-51-pytania">
-          <h2 class="es-faq__title">Co warto wiedzieć o Sodastream?</h2>
-          <div class="es-accordion">
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-                Czy w saturatorach Sodastream mogę gazować napoje inne niż woda?
-              </p>
-              <div class="es-accordion__element-content acc-content" style="">
-                <p>
-                  <br /><br />
-                  Tak, ale tylko w modelu Sodastream MIX. To jedyny saturator
-                  Sodastream, który umożliwia bezpieczne i wygodne gazowanie
-                  napojów innych niż woda, takich jak soki, koktajle, a nawet
-                  napoje alkoholowe*. Pozostałe modele saturatorów takie jak
-                  Terra, Art, Duo i Ensō pozwalają jedynie na gazowanie czystej
-                  wody.
-                  <br /><br />
-                  *Produkt nie zawiera alkoholu. W przypadku stosowania go w
-                  napojach alkoholowych prosimy o spożywanie ich w sposób
-                  odpowiedzialny. Wizualizacje nie przedstawiają napojów
-                  alkoholowych.
-                </p>
-              </div>
-            </div>
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-                Jakiej wody należy używać do gazowania w saturatorach
-                Sodastream?
-              </p>
-              <div class="es-accordion__element-content acc-content" style="">
-                <p>
-                  <br /><br />
-                  Domowe saturatory Sodastream są przeznaczone do gazowania
-                  świeżej, zimnej wody. Możesz wykorzystać wodę prosto z kranu
-                  lub przefiltrować ją dla lepszego smaku. Urządzenia Sodastream
-                  nie filtrują wody, dlatego warto zadbać o to wcześniej.
-                </p>
-              </div>
-            </div>
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                Na jak długo wystarcza jeden nabój Sodastream?
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-              </p>
-              <div class="es-accordion__element-content acc-content">
-                <p>
-                  <br /><br />
-                  Z jednego cylindra z gazem spożywczym CO₂ możesz przygotować
-                  do 60 litrów wody gazowanej. To równowartość 40 jednorazowych
-                  butelek o pojemności 1,5 litra. To, na jak długo wystarczy
-                  cylinder, zależy od częstotliwości korzystania z urządzenia
-                  oraz preferowanej intensywności nagazowania wody.
-                </p>
-              </div>
-            </div>
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                Co zrobić z pustym nabojem CO₂?
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-              </p>
-              <div class="es-accordion__element-content acc-content">
-                <p>
-                  <br /><br />
-                  Pusty nabój CO₂ Sodastream można wymienić na pełny w jednym z
-                  setek sklepów sieci Media Expert, ponosząc jedynie koszt za
-                  gaz. Nabój można wymienić również online, zamawiając nowy
-                  nabój do sklepu stacjonarnego Media Expert i oddając w sklepie
-                  pusty nabój.
-                </p>
-              </div>
-            </div>
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                Jaki nabój CO₂ wybrać do Sodastream?
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-              </p>
-              <div class="es-accordion__element-content acc-content">
-                <p>
-                  <br /><br />
-                  Do większości saturatorów Sodastream pasują różowe naboje CO₂
-                  z szybkim złączem (Quick Connect), które są łatwe i wygodne w
-                  montażu. Są kompatybilne z modelami Sodastream Terra, Art,
-                  Duo, Ensō i MIX. W ofercie Sodastream znajdziesz również
-                  niebieskie naboje CO₂ wyposażone we wkręcany system montażu
-                  (Twist). Pasują one do starszych modeli saturatorów
-                  Sodastream, takich jak Jet, Source czy Spirit.
-                </p>
-              </div>
-            </div>
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                Jakie butelki są kompatybilne z saturatorami Sodastream?
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-              </p>
-              <div class="es-accordion__element-content acc-content">
-                <br /><br />
-                <p>
-                  Do saturatorów Sodastream pasują Tritanowe butelki
-                  wielokrotnego użytku oraz stylowe butelki metalowe:
-                </p>
-
-                <ul class="es-accordion__element-content--list">
-                  <li>
-                    Elegancka butelka z praktycznym, odkręcanym dnem Sodastream
-                    Ensō
-                  </li>
-                  <li>Sodastream Fuse o pojemności 0,5 l i 1 l</li>
-                  <li>Poręczna butelka My Only Bottle</li>
-                  <li>Metalowa butelka termiczna Fizz&Go</li>
-                </ul>
-
-                <p>
-                  Dodatkowo saturator Sodastream DUO umożliwia gazowanie wody w
-                  specjalnych szklanych karafkach.
-                </p>
-              </div>
-            </div>
-            <div class="es-accordion__element">
-              <p class="es-accordion__title es-acc-tab">
-                Jak przebiega wymiana naboju CO₂ online w sklepach sieci Media
-                Expert?
-                <img
-                  class="es-accordion__arrow"
-                  src="./img/check.png"
-                  alt="Czy zawiera"
-                />
-              </p>
-              <div class="es-accordion__element-content acc-content">
-                <p>
-                  <br /><br />
-                  <span class="es-accordion__element-content--list-heading">
-                    Pusty cylinder CO₂ możesz wymienić na pełny poprzez stronę
-                    mediaexpert.pl w 3 prostych krokach: </span
-                  ><br />
-                  1.
-                  <span class="es-accordion__element-content--bold"
-                    >Złóż zamówienie online:</span
-                  >
-                  Znajdż na stronie mediaexpert.pl wymianę cylindra CO₂ dla
-                  wariantu naboju, który chcesz wymienić i dodaj do koszyka.
-                  Jeśli chcesz wymienić różowy nabój CO₂ z szybkim złączem
-                  (Quick-Connect),
-                  <a
-                    class="es-accordion__element-content--link"
-                    href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-co2-gaz-spozywczy-wymienny-oryginalny-z-atestem-1"
-                    >kliknij tutaj</a
-                  >
-                  , a jeśli niebieski cylinder CO₂ z wkręcanym gwintem (Twist),
-                  <a
-                    class="es-accordion__element-content--link"
-                    href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-co2-gaz-spozywczy-wymienny-oryginalny-z-atestem"
-                    >kliknij tutaj</a
-                  >. <br /><br />
-                  2.
-                  <span class="es-accordion__element-content--bold"
-                    >Wybierz dogodny punkt odbioru:</span
-                  >
-                  Podczas zamówienia wybierz sklep stacjonarny Media Expert, w
-                  którym chcesz odebrać nabój CO₂.
-                  <br /><br />
-                  3.
-                  <span class="es-accordion__element-content--bold"
-                    >Odbierz zamówiony nabój CO₂ :</span
-                  >
-                  Udaj się do wybranego sklepu Media Expert. Oddaj pusty nabój
-                  CO₂ i wymień go nascrollToSection pełny. Za wymianę możesz
-                  zapłacić przy kasie kartą, gotówką lub za pomocą karty
-                  podarunkowej.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="es-faq__items"></div>
         </div>
       </div>
     </div>
 
-    <script src="js/accordionSection.js"></script>
-    <script src="./js/swiper-bundle.min.js"></script>
-    <script src="./js/swiperInit.js"></script>
-    <script src="js/stickySection.js"></script>
-    <script src="js/countersSection.js"></script>
-    <script src="js/scrollToSection.js"></script>
-    <script src="js/toggleSectionVisibility.js"></script>
+    <div class="es-get-to-know-saturators" id="so-51-saturatory">
+      <div class="es-get-to-know-saturators__enso">
+        <div class="es-get-to-know-saturators__enso-saturator">
+          <img
+            class="es-get-to-know-saturators__enso-saturator-img"
+            src="./img/enso-saturator.png"
+            alt=""
+          />
+        </div>
+        <div class="es-get-to-know-saturators__enso-content">
+          <h3 class="es-get-to-know-saturators__enso-content-title">
+            poznaj saturatory<br />Sodastream
+          </h3>
+        </div>
+      </div>
+
+      <div class="es-get-to-know-saturators__menu">
+        <a href="#">wszystkie</a>
+        <a href="#">promocje</a>
+        <a href="#">terra</a>
+        <a href="#">art</a>
+        <a href="#">duo</a>
+        <a href="#">mix</a>
+        <a href="#">enso</a>
+      </div>
+
+      <div class="es-get-to-know-saturators__desc">
+        <p class="es-get-to-know-saturators__desc-text">
+          Saturatory Sodastream pozwolą Ci w prosty sposób przygotować
+          samodzielnie wodę gazowaną w domowym zaciszu – dokładnie taką, jak
+          lubisz. Bez prądu, bez kabli i bez konieczności noszenia ciężkich
+          zgrzewek z napojami – orzeźwiające bąbelki masz zawsze na wyciągnięcie
+          ręki, idealnie dopasowane do Twojego gustu. W portfolio znajdziesz
+          zarówno modele o prostym, klasycznym wyglądzie, jak i saturatory o
+          nowoczesnym designie, dopasowane do stylu Twojej kuchni. Sprawdź
+          dostępne warianty i rozpocznij swoją bąbelkową przygodę już dziś!
+        </p>
+      </div>
+    </div>
+    <div class="es-saturators-carousel-and-video">
+      <div class="es-saturators-carousel-and-video__carousel">
+        <div
+          style="
+            height: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          Products Carousel
+        </div>
+      </div>
+      <div class="es-saturators-carousel-and-video__video">
+        <video controls width="100%">
+          <source src="./video/saturator_loop_1080x1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="es-saturator-benefits show" id="so-51-benefity-saturatorow">
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell"></div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/saturator-terra.png"
+          />
+          <p class="es-saturator-benefits__row-cell-title">Sodastream Terra</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/saturator-art.png"
+          />
+          <p class="es-saturator-benefits__row-cell-title">Sodastream Art</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/saturator-duo.png"
+          />
+          <p class="es-saturator-benefits__row-cell-title">Sodastream Duo</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/saturator-enso.png"
+          />
+          <p class="es-saturator-benefits__row-cell-title">Sodastream Enso</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/saturator-mix.png"
+          />
+          <p class="es-saturator-benefits__row-cell-title">Sodastream Mix</p>
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">dostępne kolory</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <div class="es-saturator-benefits__row-cell-colors">
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/white-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/black-color.png"
+            />
+          </div>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <div class="es-saturator-benefits__row-cell-colors">
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/black-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/blue-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/red-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/white-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/green-color.png"
+            />
+          </div>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <div class="es-saturator-benefits__row-cell-colors">
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/white-gradient-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/black-gradient-color.png"
+            />
+          </div>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <div class="es-saturator-benefits__row-cell-colors">
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/black-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/white-color.png"
+            />
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/white-gradient-color.png"
+            />
+          </div>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <div class="es-saturator-benefits__row-cell-colors">
+            <img
+              class="es-saturator-benefits__row-cell-colors-img"
+              alt=""
+              src="./img/black-color.png"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">gazowanie wody</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">
+            gazowanie innych napojów
+          </p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/cross-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/cross-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/cross-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/cross-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">bezprzewodowy</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">stalowe detale</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/cross-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-img"
+            alt=""
+            src="./img/check-mark.png"
+          />
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">rodzaj cylindra</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-bottle-img"
+            alt=""
+            src="./img/bottle.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-bottle-img"
+            alt=""
+            src="./img/bottle.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-bottle-img"
+            alt=""
+            src="./img/bottle.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-bottle-img"
+            alt=""
+            src="./img/bottle.png"
+          />
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <img
+            class="es-saturator-benefits__row-cell-bottle-img"
+            alt=""
+            src="./img/bottle.png"
+          />
+        </div>
+      </div>
+      <div class="es-saturator-benefits__row">
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">
+            butelka dołączona do zestawu
+          </p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">
+            butelka fuse 1l + szklana karafka duo 1l
+          </p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">butelka fuse 1l</p>
+        </div>
+        <div class="es-saturator-benefits__row-cell">
+          <p class="es-saturator-benefits__row-cell-text">
+            butelka fuse 1l + butelka o pojemności 430ml
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="es-saturator-benefits__arrow"
+      onclick="toggleSection.call(this, 'so-51-benefity-saturatorow')"
+    >
+      &#9650;
+    </div>
+
+    <div class="es-get-to-know-saturators--orange" id="so-51-butelki">
+      <div class="es-get-to-know-saturators--orange__enso">
+        <div class="es-get-to-know-saturators--orange__enso-content">
+          <h3 class="es-get-to-know-saturators--orange__enso-content-title">
+            Twoje bąbelki, Twój&nbsp;styl<br />-&nbsp;gdziekolwiek jesteś
+          </h3>
+        </div>
+        <div class="es-get-to-know-saturators--orange__enso-saturator">
+          <img
+            class="es-get-to-know-saturators--orange__enso-saturator-img"
+            src="./img/bottles.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="es-get-to-know-saturators--orange__menu">
+        <a href="#">wszystkie</a>
+        <a href="#">promocje</a>
+        <a href="#">Tritanowe 0,5l</a>
+        <a href="#">Tritanowe 1l</a>
+        <a href="#">szklane</a>
+        <a href="#">termiczne</a>
+      </div>
+
+      <div class="es-get-to-know-saturators--orange__desc">
+        <p class="es-get-to-know-saturators--orange__desc-text">
+          Butelki Sodastream to stylowe dopełnienie Twojego bąbelkowego rytuału
+          – zaprojektowane z myślą o codziennym komforcie, będą Twoim wiernym
+          towarzyszem zarówno w domu, jak i w drodze. Wśród dostępnych wariantów
+          znajdziesz zarówno eleganckie butelki na co dzień, jak i kompaktowe
+          modele, idealne na spacer czy siłownię. W ofercie dostępne są również
+          termiczne butelki Fizz&Go, które pozwalają przygotować napój gazowany
+          bezpośrednio w butelce i – dzięki podwójnym ściankom – utrzymają jego
+          temperaturę nawet do 12 godzin. Wybierz wersję najlepiej dopasowaną do
+          swoich potrzeb i nie rozstawaj się z bąbelkami ani na chwilę!
+        </p>
+      </div>
+    </div>
+    <div class="es-saturators-carousel-and-video--orange">
+      <div class="es-saturators-carousel-and-video--orange__video">
+        <video controls width="100%">
+          <source src="./video/butelki_loop_1080x1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="es-saturators-carousel-and-video--orange__carousel">
+        <div
+          style="
+            height: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          Products Carousel
+        </div>
+      </div>
+    </div>
+
+    <div class="es-get-to-know-saturators--green" id="so-51-syropy">
+      <div class="es-get-to-know-saturators--green__enso">
+        <div class="es-get-to-know-saturators--green__enso-saturator">
+          <img
+            class="es-get-to-know-saturators--green__enso-saturator-img"
+            src="./img/tastes.png"
+            alt=""
+          />
+        </div>
+        <div class="es-get-to-know-saturators--green__enso-content">
+          <h3 class="es-get-to-know-saturators--green__enso-content-title">
+            poznaj świat<br />smaków Sodastream
+          </h3>
+        </div>
+      </div>
+
+      <div class="es-get-to-know-saturators--green__menu">
+        <a href="#">wszystkie</a>
+        <a href="#">promocje</a>
+        <a href="#">kultowe napoje gazowane</a>
+        <a href="#">lipton</a>
+        <a href="#">owocowe<br />smaki</a>
+        <a href="#">classics</a>
+      </div>
+
+      <div class="es-get-to-know-saturators--green__desc">
+        <p class="es-get-to-know-saturators--green__desc-text">
+          Eksperymentuj ze smakiem i baw się bąbelkami! Syropy Sodastream
+          oferują szeroką gamę możliwości – od klasycznych smaków, które dobrze
+          znasz, przez owocowe warianty bez dodatku cukru, aż po nowoczesne,
+          zaskakujące kompozycje, które pobudzą Twoją wyobraźnię. Wystarczy
+          kilka kropli, by zamienić zwykłą wodę gazowaną w orzeźwiający napój,
+          idealnie dopasowany do Twojego gustu. Odkryj swój ulubiony wariant i
+          spraw by bąbelki miały jeszcze więcej charakteru!
+        </p>
+      </div>
+    </div>
+    <div class="es-saturators-carousel-and-video--green">
+      <div class="es-saturators-carousel-and-video--green__carousel">
+        <div
+          style="
+            height: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          Products Carousel
+        </div>
+      </div>
+      <div class="es-saturators-carousel-and-video--green__video">
+        <video controls width="100%">
+          <source src="./video/syropy_loop_1080x1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="es-get-to-know-saturators--pink" id="so-51-cylindry">
+      <div class="es-get-to-know-saturators--pink__enso">
+        <div class="es-get-to-know-saturators--pink__enso-content">
+          <h3 class="es-get-to-know-saturators--pink__enso-content-title">
+            niech nigdy<br />nie zabraknie Ci bąbelków
+          </h3>
+        </div>
+        <div class="es-get-to-know-saturators--pink__enso-saturator">
+          <img
+            class="es-get-to-know-saturators--pink__enso-saturator-img"
+            src="./img/bubbles.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="es-get-to-know-saturators--pink__desc">
+        <p class="es-get-to-know-saturators--pink__desc-text">
+          Cylinder CO₂ to Twoje źródło świeżych bąbelków, które zmienia zwykłą
+          wodę w przyjemnie orzeźwiający napój — zawsze wtedy, gdy masz na to
+          ochotę. Każdy cylinder pozwala przygotować aż do 60 litrów gazowanej
+          wody, co sprawia, że codzienne orzeźwienie jest zawsze w zasięgu ręki.
+          <br /><br />
+          W ofercie Sodastream dostępne są dwa warianty cylindrów CO₂:
+          <br />Różowy – cylinder z szybkim złączem (Quick Connect), dedykowany
+          do modeli: Terra, Art, Duo, Enso oraz MIX. <br />Niebieski – cylinder
+          z wkręcanym gwintem (Twist), pasujący do modeli: Spirit, Jet oraz
+          Source.
+        </p>
+      </div>
+    </div>
+    <div class="es-saturators-carousel-and-video--pink">
+      <div class="es-saturators-carousel-and-video--pink__video">
+        <video controls width="100%">
+          <source src="./video/cylindry_loop_1080x1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="es-saturators-carousel-and-video--pink__carousel">
+        <div
+          style="
+            height: 100%;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          Products Carousel
+        </div>
+      </div>
+    </div>
+
+    <div class="es-bottle-exchange"></div>
+
+    <div class="es-map show" id="so-51-mapa">Map</div>
+    <div class="es-map__arrow" onclick="toggleSection.call(this, 'so-51-mapa')">
+      &#9650;
+    </div>
+
+    <div class="es-bottles-gallery">
+      <div class="es-bottles-gallery__left">
+        <h3 class="es-bottles-gallery__left-title">
+          zmień jednorazowe<br />butelki na bąbelki
+        </h3>
+      </div>
+      <div class="es-bottles-gallery__right">
+        <div class="es-bottles-gallery__right-col">
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+        </div>
+        <div class="es-bottles-gallery__right-col">
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+        </div>
+        <div class="es-bottles-gallery__right-col">
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+        </div>
+        <div class="es-bottles-gallery__right-col">
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+          <div class="es-bottles-gallery__right-col-image-placeholder"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="es-bottle-counters" id="so-51-dlaczego">
+      <div class="es-bottle-counters__litres">
+        <div class="es-bottle-counters__litres-col">
+          <p>1 saturator<br />pozwala zastąpić</p>
+          <p id="counter1">0</p>
+          <p>
+            plastikowych butelek<br />jednorazowego użytku&nbsp;<sup>1</sup>
+          </p>
+        </div>
+
+        <div class="es-bottle-counters__litres-col">
+          <p>1 syrop Sodastream<br />pozwala przygotować</p>
+          <p><span id="counter2">0</span> litrów</p>
+          <p>Twojego ulubionego<br />napoju&nbsp;<sup>2</sup></p>
+        </div>
+
+        <div class="es-bottle-counters__litres-col">
+          <p>1 cylinder CO₂<br />pozwala przygotować</p>
+          <p><span id="counter3">0</span> litrów</p>
+          <p>wody nagazowanej tak,<br />jak lubisz&nbsp;<sup>3</sup></p>
+        </div>
+      </div>
+
+      <div class="es-bottle-counters__references">
+        <p class="es-bottle-counters__references-text">
+          <sup>1</sup>&nbsp;Plastikowych butelek jednorazowego użytku o
+          pojemności 0,5 l. W zależności od poziomu nagazowania i modelu
+          saturatora.
+        </p>
+        <p class="es-bottle-counters__references-text">
+          <sup>2</sup>&nbsp;Jeśli przygotowane zgodnie z instrukcją na
+          opakowaniu.
+        </p>
+        <p class="es-bottle-counters__references-text">
+          <sup>3</sup>&nbsp;W zależności od poziomu nagazowania i modelu
+          saturatora.
+        </p>
+      </div>
+    </div>
+
+    <div class="es-faq" id="so-51-pytania">
+      <h2 class="es-faq__title">Co warto wiedzieć o Sodastream?</h2>
+      <div class="es-accordion">
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+            Czy w saturatorach Sodastream mogę gazować napoje inne niż woda?
+          </p>
+          <div class="es-accordion__element-content acc-content" style="">
+            <p>
+              <br /><br />
+              Tak, ale tylko w modelu Sodastream MIX. To jedyny saturator
+              Sodastream, który umożliwia bezpieczne i wygodne gazowanie napojów
+              innych niż woda, takich jak soki, koktajle, a nawet napoje
+              alkoholowe*. Pozostałe modele saturatorów takie jak Terra, Art,
+              Duo i Ensō pozwalają jedynie na gazowanie czystej wody.
+              <br /><br />
+              *Produkt nie zawiera alkoholu. W przypadku stosowania go w
+              napojach alkoholowych prosimy o spożywanie ich w sposób
+              odpowiedzialny. Wizualizacje nie przedstawiają napojów
+              alkoholowych.
+            </p>
+          </div>
+        </div>
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+            Jakiej wody należy używać do gazowania w saturatorach Sodastream?
+          </p>
+          <div class="es-accordion__element-content acc-content" style="">
+            <p>
+              <br /><br />
+              Domowe saturatory Sodastream są przeznaczone do gazowania świeżej,
+              zimnej wody. Możesz wykorzystać wodę prosto z kranu lub
+              przefiltrować ją dla lepszego smaku. Urządzenia Sodastream nie
+              filtrują wody, dlatego warto zadbać o to wcześniej.
+            </p>
+          </div>
+        </div>
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            Na jak długo wystarcza jeden nabój Sodastream?
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+          </p>
+          <div class="es-accordion__element-content acc-content">
+            <p>
+              <br /><br />
+              Z jednego cylindra z gazem spożywczym CO₂ możesz przygotować do 60
+              litrów wody gazowanej. To równowartość 40 jednorazowych butelek o
+              pojemności 1,5 litra. To, na jak długo wystarczy cylinder, zależy
+              od częstotliwości korzystania z urządzenia oraz preferowanej
+              intensywności nagazowania wody.
+            </p>
+          </div>
+        </div>
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            Co zrobić z pustym nabojem CO₂?
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+          </p>
+          <div class="es-accordion__element-content acc-content">
+            <p>
+              <br /><br />
+              Pusty nabój CO₂ Sodastream można wymienić na pełny w jednym z
+              setek sklepów sieci Media Expert, ponosząc jedynie koszt za gaz.
+              Nabój można wymienić również online, zamawiając nowy nabój do
+              sklepu stacjonarnego Media Expert i oddając w sklepie pusty nabój.
+            </p>
+          </div>
+        </div>
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            Jaki nabój CO₂ wybrać do Sodastream?
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+          </p>
+          <div class="es-accordion__element-content acc-content">
+            <p>
+              <br /><br />
+              Do większości saturatorów Sodastream pasują różowe naboje CO₂ z
+              szybkim złączem (Quick Connect), które są łatwe i wygodne w
+              montażu. Są kompatybilne z modelami Sodastream Terra, Art, Duo,
+              Ensō i MIX. W ofercie Sodastream znajdziesz również niebieskie
+              naboje CO₂ wyposażone we wkręcany system montażu (Twist). Pasują
+              one do starszych modeli saturatorów Sodastream, takich jak Jet,
+              Source czy Spirit.
+            </p>
+          </div>
+        </div>
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            Jakie butelki są kompatybilne z saturatorami Sodastream?
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+          </p>
+          <div class="es-accordion__element-content acc-content">
+            <br /><br />
+            <p>
+              Do saturatorów Sodastream pasują Tritanowe butelki wielokrotnego
+              użytku oraz stylowe butelki metalowe:
+            </p>
+
+            <ul class="es-accordion__element-content--list">
+              <li>
+                Elegancka butelka z praktycznym, odkręcanym dnem Sodastream Ensō
+              </li>
+              <li>Sodastream Fuse o pojemności 0,5 l i 1 l</li>
+              <li>Poręczna butelka My Only Bottle</li>
+              <li>Metalowa butelka termiczna Fizz&Go</li>
+            </ul>
+
+            <p>
+              Dodatkowo saturator Sodastream DUO umożliwia gazowanie wody w
+              specjalnych szklanych karafkach.
+            </p>
+          </div>
+        </div>
+        <div class="es-accordion__element">
+          <p class="es-accordion__title es-acc-tab">
+            Jak przebiega wymiana naboju CO₂ online w sklepach sieci Media
+            Expert?
+            <img
+              class="es-accordion__arrow"
+              src="./img/check.png"
+              alt="Czy zawiera"
+            />
+          </p>
+          <div class="es-accordion__element-content acc-content">
+            <p>
+              <br /><br />
+              <span class="es-accordion__element-content--list-heading">
+                Pusty cylinder CO₂ możesz wymienić na pełny poprzez stronę
+                mediaexpert.pl w 3 prostych krokach: </span
+              ><br />
+              1.
+              <span class="es-accordion__element-content--bold"
+                >Złóż zamówienie online:</span
+              >
+              Znajdż na stronie mediaexpert.pl wymianę cylindra CO₂ dla wariantu
+              naboju, który chcesz wymienić i dodaj do koszyka. Jeśli chcesz
+              wymienić różowy nabój CO₂ z szybkim złączem (Quick-Connect),
+              <a
+                class="es-accordion__element-content--link"
+                href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-co2-gaz-spozywczy-wymienny-oryginalny-z-atestem-1"
+                >kliknij tutaj</a
+              >
+              , a jeśli niebieski cylinder CO₂ z wkręcanym gwintem (Twist),
+              <a
+                class="es-accordion__element-content--link"
+                href="https://www.mediaexpert.pl/agd-male/do-kuchni/naboje-do-saturatorow/naboj-sodastream-co2-gaz-spozywczy-wymienny-oryginalny-z-atestem"
+                >kliknij tutaj</a
+              >. <br /><br />
+              2.
+              <span class="es-accordion__element-content--bold"
+                >Wybierz dogodny punkt odbioru:</span
+              >
+              Podczas zamówienia wybierz sklep stacjonarny Media Expert, w
+              którym chcesz odebrać nabój CO₂.
+              <br /><br />
+              3.
+              <span class="es-accordion__element-content--bold"
+                >Odbierz zamówiony nabój CO₂ :</span
+              >
+              Udaj się do wybranego sklepu Media Expert. Oddaj pusty nabój CO₂ i
+              wymień go nascrollToSection pełny. Za wymianę możesz zapłacić przy
+              kasie kartą, gotówką lub za pomocą karty podarunkowej.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="es-faq__items"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/accordionSection.js"></script>
+<script src="./js/swiper-bundle.min.js"></script>
+<script src="./js/swiperInit.js"></script>
+<script src="js/stickySection.js"></script>
+<script src="js/countersSection.js"></script>
+<script src="js/scrollToSection.js"></script>
+<script src="js/toggleSectionVisibility.js"></script>
